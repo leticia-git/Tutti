@@ -61,3 +61,11 @@ color: #036838;
    margin-right: 0px;
    padding-right: 0%;
  }
+ footer {
+  height: 100px;
+}
+
+footer.icons {
+  font-size: 20px;
+  background-color: orange;
+}
