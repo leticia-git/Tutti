@@ -20,7 +20,7 @@ a {
 
 .form-inline{
   margin-right: 50px;
-  margin-top: -20px;
+  margin-top: 10px;
   position: relative;
 }
 
@@ -60,12 +60,24 @@ color: #036838;
    margin-left: 0px;
    margin-right: 0px;
    padding-right: 0%;
+   margin-bottom: 10px;
  }
  footer {
   height: 100px;
+  position: relative;
 }
 
 footer.icons {
   font-size: 20px;
   background-color: orange;
 }
+
+.texto1{
+  font-size: 17px;
+}
+
+.col-12{
+  margin-top: 20px;
+  position: relative;
+}
+
