@@ -103,7 +103,23 @@ footer.icons {
   font-family: Franklin Gothic Medium;
 }
 
-.form-control input{
-  float:center;
+form-group {
+  align-items: center;
+  
 }
 
+.btn-primary {
+  font-family:  Franklin Gothic ;
+  font-size: 20px;
+  font-style: bold;
+  color: #1e7e34;
+  background-color: #FA8B2E;
+  border-color: #FA8B2E;
+  align-items: center;
+}
+
+.form-control{
+  align-items: center;
+  border-radius: .50rem;
+  width: 250pt;
+}
