@@ -22,26 +22,30 @@
         <img src="/images/Logo-8.png" class="img-fluid"  alt="...">
       </div>
       
-      <form >
-        <div class="form-group row mx-auto">
-          <label for="inputEmail3" class="col-sm-3 col-form-label"></label>
-          <div class="col-sm-4">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="E-mail">
-          </div>
+      <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">                        
+              <h2>Bem Vindos!</h2>
+            </div>
         </div>
-        <div class="form-group row mx-auto">
-          <label for="inputPassword3" class="col-sm-3 col-form-label"></label>
-          <div class="col-sm-4">
-            <input type="password" class="form-control" id="inputPassword3" placeholder="Senha">
-          </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3">
+                <form id="contact-form" class="form" action="#" method="POST" role="form">
+                    <div class="form-group">
+                        <label class="form-label" for="Email"></label>
+                        <input type="text" class="form-control" id="name" name="Email" placeholder="Email" tabindex="1" required>
+                    </div>                            
+                    <div class="form-group">
+                        <label class="form-label" for="Senha"></label>
+                        <input type="email" class="form-control" id="email" name="Senha" placeholder="Senha" tabindex="2" required>
+                    </div>                            
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-start-order">Entrar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="form-group row mx-auto">
-          <div class="col-sm-4" >
-            <button type="submit" class="btn btn-primary" align-item="center">Entrar</button>
-          </div>
-        </div>
-      </form>
-
+      </div>
 
   </main>
  

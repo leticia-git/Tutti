@@ -102,13 +102,7 @@ footer.icons {
   color: white;
   font-family: Franklin Gothic Medium;
 }
-
-form-group {
-  align-items: center;
-  
-}
-
-.btn-primary {
+.btn {
   font-family:  Franklin Gothic ;
   font-size: 20px;
   font-style: bold;
@@ -118,8 +112,12 @@ form-group {
   align-items: center;
 }
 
-.form-control{
-  align-items: center;
-  border-radius: .50rem;
-  width: 250pt;
+
+h2{
+  font-family: Bacalisties;
+  font-size: 80px;
+}
+
+.row{
+  float:center;
 }
