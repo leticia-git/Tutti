@@ -1,6 +1,6 @@
 body {
   padding: 10px;
-  font-size:30px  ;
+  font-size:20px  ;
   font-family: Franklin Gothic Medium;
 }
 
@@ -12,7 +12,7 @@ a {
   color:orange;
 }
 
-.form-control{
+.form-control1{
   background: transparent;
   border: none;
   border-bottom: 3px solid orange;
@@ -30,6 +30,11 @@ a {
 .user{
   margin-top: -20px;
 margin-right: 40px;
+}
+
+.cart{
+  margin-top: -20px;
+margin-right: 60px;
 }
 
 a:hover{
@@ -86,3 +91,19 @@ footer.icons {
 .banner3{
   margin-top: 10px;
 }
+
+.login{
+  background-color: #EFBD8C;
+}
+
+
+
+.usuario{
+  color: white;
+  font-family: Franklin Gothic Medium;
+}
+
+.form-control input{
+  float:center;
+}
+
