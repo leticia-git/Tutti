@@ -28,7 +28,7 @@ a {
   width: auto;
 }
 .user{
-  margin-top: -20px;
+margin-top: -20px;
 margin-right: 40px;
 }
 
@@ -102,7 +102,7 @@ footer.icons {
   color: white;
   font-family: Franklin Gothic Medium;
 }
-.btn {
+.btn0 {
   font-family:  Franklin Gothic ;
   font-size: 20px;
   font-style: bold;
@@ -113,11 +113,29 @@ footer.icons {
 }
 
 
-h2{
+p{
   font-family: Bacalisties;
-  font-size: 80px;
+  font-size: 50px;
 }
 
 .row{
   float:center;
+}
+
+.btn1{
+background-color:#1e7e34;
+border: #1e7e34;
+color: white;
+}
+
+body.login {
+  height:  800px;
+}
+
+html.login{
+  height: 800px;
+}
+
+.mx-auto{
+  padding-left: 42px;
 }
