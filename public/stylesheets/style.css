@@ -139,3 +139,20 @@ html.login{
 .mx-auto{
   padding-left: 42px;
 }
+
+.col-md-4 mb-3{
+margin-top: 10px;
+margin-left: 15px;
+}
+
+.col-6{
+  padding-right: 1%;
+  max-width: 100%;
+  padding-bottom: 0%;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #f89606;
+  border-color: #f89606;
+}
