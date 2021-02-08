@@ -79,6 +79,7 @@ footer.icons {
   position: relative;
 }
 
+
 .texto1{
   font-size: 17px;
 }
@@ -155,4 +156,8 @@ margin-left: 15px;
   color: #fff;
   background-color: #f89606;
   border-color: #f89606;
+}
+
+.text-center p {
+  font-family: Bacalisties;
 }
