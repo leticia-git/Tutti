@@ -113,10 +113,6 @@ footer.icons {
 }
 
 
-p{
-  font-family: Bacalisties;
-  font-size: 50px;
-}
 
 .row{
   float:center;
@@ -155,4 +151,51 @@ margin-left: 15px;
   color: #fff;
   background-color: #f89606;
   border-color: #f89606;
+}
+
+.text-center {
+  font-family: Bacalisties;
+  font-size: 50px;
+}
+
+.frutas{
+  background-color: #F9E898;
+  border-radius: 20px;
+}
+
+.Legumes{
+  background-color: #f8cc89e8;
+  border-radius: 20px;
+}
+
+.verduras{
+background-color: #E2EB93;
+border-radius: 20px;
+
+} 
+
+.card p{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  font-size: 34px;
+  color: white;
+  margin-top: 20px;
+}
+
+
+.card{
+  border-radius: 20px;
+  margin-top: 10pt;
+}
+
+.col-12{
+  background-color: orangered;
+border-radius: 30px;
+  align-items: center;
+  color: white;
+}
+
+p{
+  text-align: center;
+  margin-top: 5pt;
 }
