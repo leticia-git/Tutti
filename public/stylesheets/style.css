@@ -16,6 +16,7 @@ a {
   background: transparent;
   border: none;
   border-bottom: 3px solid orange;
+
 }
 
 .form-inline{
@@ -60,12 +61,12 @@ color: #036838;
    margin-top: -40px;
  }
 
- .col-6{
-   margin-top: 10px;
+ .col-sm{
+   margin-top: 20px;
    margin-left: 0px;
    margin-right: 0px;
    padding-right: 0%;
-   margin-bottom: 10px;
+ 
  }
  footer {
   height: 100px;
@@ -96,10 +97,6 @@ footer.icons {
   border-radius: 50px;
 }
 
-#texto {
-  position: absolute;
-  margin-top: -30px;
-  }
 
 .login{
   background-color: #EFBD8C;
@@ -131,6 +128,7 @@ footer.icons {
 background-color:#1e7e34;
 border: #1e7e34;
 color: white;
+font-family: 'Franklin Gothic Medium'!important;
 }
 
 body.login {
@@ -141,16 +139,14 @@ html.login{
   height: 800px;
 }
 
-.mx-auto{
-  padding-left: 42px;
-}
+
 
 .col-md-4 mb-3{
 margin-top: 10px;
 margin-left: 15px;
 }
 
-.col-6{
+.col-sm{
   padding-right: 1%;
   max-width: 100%;
   padding-bottom: 0%;
@@ -160,6 +156,7 @@ margin-left: 15px;
   color: #fff;
   background-color: #f89606;
   border-color: #f89606;
+  font-family: 'Franklin Gothic Medium'!important;
 }
 
 
@@ -242,4 +239,42 @@ transform: translateX(0);
 
 .rounded{
   border-radius: 50px;
+}
+
+.text-center{
+  font-family:Bacalisties ;
+}
+
+
+#produtos{
+  font-family: 'Franklin Gothic Medium'!important;
+}
+
+.form-control{
+  font-family: 'Franklin Gothic Medium'!important;
+}
+
+
+#texto {
+  font-family: helvetica!important;
+  font-size: 60px!important;
+  }
+
+  
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu a::after {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 6px;
+  top: .8em;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: .1rem;
+  margin-right: .1rem;
 }
