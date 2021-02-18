@@ -11,6 +11,9 @@ var recipesRouter = require('./routes/recipes');
 var usRouter = require('./routes/us');
 var contactRouter = require('./routes/contact');
 var registerRouter = require('./routes/register');
+var frutaRouter = require('./routes/fruta');
+var legumesRouter = require('./routes/legumes');
+var verdurasRouter = require('./routes/verduras');
 var app = express();
 
 // view engine setup
@@ -30,6 +33,9 @@ app.use('/recipes', recipesRouter);
 app.use('/us', usRouter);
 app.use('/register', registerRouter);
 app.use('/contact', contactRouter);
+app.use('/fruta', frutaRouter);
+app.use('/legumes', legumesRouter);
+app.use('/verduras', verdurasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

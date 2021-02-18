@@ -2,10 +2,12 @@ body {
   padding: 10px;
   font-size:20px  ;
   font-family: Franklin Gothic Medium;
+margin: 5px;
 }
 
 menu{
 margin-top: -20px;
+padding: 0%;
 }
 
 a {
@@ -42,6 +44,10 @@ a:hover{
 color: #036838;
 
 }
+.navbar-brand{
+  padding-left: 0%;
+  margin-left: -30px;
+}
 
 .navbar-nav .dropdown-menu {
   background-color: orange;
@@ -55,6 +61,10 @@ color: #036838;
 
 .navbar-nav .dropdown-menu a:hover{
   color: #036838;
+ }
+
+ .navbar-expand-lg .navbar-nav{
+   font-size: 25px;
  }
 
  header{
@@ -243,11 +253,13 @@ transform: translateX(0);
 
 .text-center{
   font-family:Bacalisties ;
+  font-size: 40pt;
 }
 
 
 #produtos{
   font-family: 'Franklin Gothic Medium'!important;
+  font-size: 20px!important;
 }
 
 .form-control{
@@ -278,3 +290,14 @@ transform: translateX(0);
   margin-left: .1rem;
   margin-right: .1rem;
 }
+
+#receitadebanana{
+  padding-left: 25px;
+  
+}
+
+#rodape {
+margin-top: 11rem!important;
+position: static;
+}
+
