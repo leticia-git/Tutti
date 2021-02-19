@@ -86,7 +86,7 @@ color: #036838;
 
 footer.icons {
   font-size: 20px;
-  background-color: orange;
+  background-color: #ffa500;
   position: relative;
 }
 
@@ -190,7 +190,7 @@ border-radius: 20px;
 .card p{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
-  font-size: 34px;
+  font-size: 34px!important;
   color: white;
   margin-top: 20px;
 }
@@ -208,7 +208,7 @@ border-radius: 30px;
   color: white;
 }
 
-p{
+.col-12 p{
   text-align: center;
   margin-top: 5pt;
 }
@@ -301,3 +301,20 @@ margin-top: 11rem!important;
 position: static;
 }
 
+#contact{
+font-family:Bacalisties;
+font-size: 50px!important;
+}
+
+.col-sm p{
+  font-size: 15px;
+}
+
+.iframe{
+position: center;
+padding: 10%;
+}
+
+#redes{
+place-items: center;
+}
