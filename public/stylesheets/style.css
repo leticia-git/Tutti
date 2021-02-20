@@ -55,7 +55,7 @@ color: #036838;
 
 
 .navbar-nav .dropdown-menu a{
- color: white;
+ color: #036838;
 }
 
 
@@ -128,10 +128,13 @@ footer.icons {
   align-items: center;
 }
 
+.btn-primary :hover{
+color: green;
+}
 
-
-.row{
-  float:center;
+.col-sm-3{
+  padding-top: 80px;
+  padding-bottom: 110px;
 }
 
 .btn1{
@@ -199,6 +202,7 @@ border-radius: 20px;
 .card{
   border-radius: 20px;
   margin-top: 10pt;
+  position: relative;
 }
 
 .col-12{
@@ -317,4 +321,23 @@ padding: 10%;
 
 #redes{
 place-items: center;
+}
+
+#preço{
+  font-size: 20px!important;
+  padding: 0%;
+  margin: 0%;
+}
+
+.btn-primary:hover{
+  background-color: #036838;
+  border:#036838 ;
+}
+
+.col{
+  margin-bottom: 100px;
+}
+
+#inputPassword2{
+  width: 45px;
 }
