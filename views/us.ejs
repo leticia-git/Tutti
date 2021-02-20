@@ -11,7 +11,9 @@
   <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
+<script defer src="/javascripts/carrousel.js"></script>
   <link rel='stylesheet' href='/stylesheets/style.css'/>
+  
   </head>
   <body>
   <menu>
@@ -24,25 +26,57 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
+              <a class="nav-link" href="index">Home</a>
             </li>
   
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Feira
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Frutas</a>
-                <a class="dropdown-item" href="#">Verduras</a>
-                <a class="dropdown-item" href="#">Legumes</a>
-              </div>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Frutas</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Abacate</a></li>
+                        <li><a class="dropdown-item" href="#">Abacaxi</a></li>
+                        <li><a class="dropdown-item" href="#">Azeitona</a></li>
+                        <li><a class="dropdown-item" href="#">Açaí</a></li>
+                        <li><a class="dropdown-item" href="#">Acerola</a></li>
+                        <li><a class="dropdown-item" href="#">Ameixa</a></li>
+                        <li><a class="dropdown-item" href="#">Amora</a></li>
+                        <li><a class="dropdown-item" href="#">Amêndoa</a></li>
+                        <li><a href="" style="color: rgb(1, 49, 1);">Ver Mais</a></li>
+                        </ul>
+                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Legumes</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Abóbora</a></li>
+                                <li><a class="dropdown-item" href="#">Abobrinha</a></li>
+                                <li><a class="dropdown-item" href="#">Alcachofra</a></li>
+                                <li><a class="dropdown-item" href="#">Aspargos</a></li>
+                                <li><a class="dropdown-item" href="#">Aipim</a></li>
+                                <li><a class="dropdown-item" href="#">Berinjela</a></li>
+                                <li><a class="dropdown-item" href="#">Brócolis</a></li>
+                                <li><a class="dropdown-item" href="#">Batata</a></li>
+                                <li><a href="" style="color: rgb(1, 49, 1);">Ver Mais</a></li>
+                                </ul>
+                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Verduras</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Agrião</a></li>
+                    <li><a class="dropdown-item" href="#">Alface Crespa</a></li>
+                    <li><a class="dropdown-item" href="#">Alface Americana</a></li>
+                    <li><a class="dropdown-item" href="#">Almeirão</a></li>
+                    <li><a class="dropdown-item" href="#">Alho-poró</a></li>
+                    <li><a class="dropdown-item" href="#">Cebola</a></li>
+                    <li><a class="dropdown-item" href="#">Chicória</a></li>
+                    <li><a class="dropdown-item" href="#">Couve-flor</a></li>
+                    <li><a href="" style="color: rgb(1, 49, 1);">Ver Mais</a></li>
+                    </ul>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contato</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sobre nós</a>
-            </li>
+            <a class="nav-link" href="/contact">Contato</a>
+            <a class="nav-link" href="/us">Sobre nós</a>
+          </ul>
+            
           </ul>
           <form class="form-inline">
             <input class="form-control1 input-sm"  type="search" placeholder="Procure nossos produtos aqui!" aria-label="Pesquisa">

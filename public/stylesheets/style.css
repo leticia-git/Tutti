@@ -2,10 +2,12 @@ body {
   padding: 10px;
   font-size:20px  ;
   font-family: Franklin Gothic Medium;
+margin: 5px;
 }
 
 menu{
 margin-top: -20px;
+padding: 0%;
 }
 
 a {
@@ -16,6 +18,7 @@ a {
   background: transparent;
   border: none;
   border-bottom: 3px solid orange;
+
 }
 
 .form-inline{
@@ -41,6 +44,10 @@ a:hover{
 color: #036838;
 
 }
+.navbar-brand{
+  padding-left: 0%;
+  margin-left: -30px;
+}
 
 .navbar-nav .dropdown-menu {
   background-color: orange;
@@ -56,16 +63,20 @@ color: #036838;
   color: #036838;
  }
 
+ .navbar-expand-lg .navbar-nav{
+   font-size: 25px;
+ }
+
  header{
    margin-top: -40px;
  }
 
- .col-6{
-   margin-top: 10px;
+ .col-sm{
+   margin-top: 20px;
    margin-left: 0px;
    margin-right: 0px;
    padding-right: 0%;
-   margin-bottom: 10px;
+ 
  }
  footer {
   height: 100px;
@@ -75,7 +86,7 @@ color: #036838;
 
 footer.icons {
   font-size: 20px;
-  background-color: orange;
+  background-color: #ffa500;
   position: relative;
 }
 
@@ -91,6 +102,11 @@ footer.icons {
 .banner3{
   margin-top: 10px;
 }
+
+.banner{
+  border-radius: 50px;
+}
+
 
 .login{
   background-color: #EFBD8C;
@@ -122,6 +138,7 @@ footer.icons {
 background-color:#1e7e34;
 border: #1e7e34;
 color: white;
+font-family: 'Franklin Gothic Medium'!important;
 }
 
 body.login {
@@ -132,16 +149,14 @@ html.login{
   height: 800px;
 }
 
-.mx-auto{
-  padding-left: 42px;
-}
+
 
 .col-md-4 mb-3{
 margin-top: 10px;
 margin-left: 15px;
 }
 
-.col-6{
+.col-sm{
   padding-right: 1%;
   max-width: 100%;
   padding-bottom: 0%;
@@ -151,12 +166,10 @@ margin-left: 15px;
   color: #fff;
   background-color: #f89606;
   border-color: #f89606;
+  font-family: 'Franklin Gothic Medium'!important;
 }
 
-.text-center {
-  font-family: Bacalisties;
-  font-size: 50px;
-}
+
 
 .frutas{
   background-color: #F9E898;
@@ -177,7 +190,7 @@ border-radius: 20px;
 .card p{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
-  font-size: 34px;
+  font-size: 34px!important;
   color: white;
   margin-top: 20px;
 }
@@ -195,7 +208,113 @@ border-radius: 30px;
   color: white;
 }
 
-p{
+.col-12 p{
   text-align: center;
   margin-top: 5pt;
+}
+
+@media (max-width: 768px) {
+  .carousel-inner .carousel-item > div {
+      display: none;
+  }
+  .carousel-inner .carousel-item > div:first-child {
+      display: block;
+  }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* display 3 */
+@media (min-width: 768px) {
+  
+  .carousel-inner .carousel-item-right.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(33.333%);
+  }
+  
+  .carousel-inner .carousel-item-left.active, 
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-33.333%);
+  }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{ 
+transform: translateX(0);
+}
+
+.rounded{
+  border-radius: 50px;
+}
+
+.text-center{
+  font-family:Bacalisties ;
+  font-size: 40pt;
+}
+
+
+#produtos{
+  font-family: 'Franklin Gothic Medium'!important;
+  font-size: 20px!important;
+}
+
+.form-control{
+  font-family: 'Franklin Gothic Medium'!important;
+}
+
+
+#texto {
+  font-family: helvetica!important;
+  font-size: 60px!important;
+  }
+
+  
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu a::after {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 6px;
+  top: .8em;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: .1rem;
+  margin-right: .1rem;
+}
+
+#receitadebanana{
+  padding-left: 25px;
+  
+}
+
+#rodape {
+margin-top: 11rem!important;
+position: static;
+}
+
+#contact{
+font-family:Bacalisties;
+font-size: 50px!important;
+}
+
+.col-sm p{
+  font-size: 15px;
+}
+
+.iframe{
+position: center;
+padding: 10%;
+}
+
+#redes{
+place-items: center;
 }
