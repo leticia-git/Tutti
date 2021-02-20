@@ -14,11 +14,6 @@ var registerRouter = require('./routes/register');
 var frutaRouter = require('./routes/fruta');
 var legumesRouter = require('./routes/legumes');
 var verdurasRouter = require('./routes/verduras');
-var mercadoRouter = require ('./routes/mercadoA');
-var mercadoBRouter = require ('./routes/mercadoB');
-var mercadoCRouter = require ('./routes/mercadoC');
-var cartRouter = require ('./routes/cart');
-var checkoutRouter = require ('./routes/checkout');
 var app = express();
 
 // view engine setup
@@ -41,11 +36,7 @@ app.use('/contact', contactRouter);
 app.use('/fruta', frutaRouter);
 app.use('/legumes', legumesRouter);
 app.use('/verduras', verdurasRouter);
-app.use('/mercadoA', mercadoRouter);
-app.use('/mercadoB', mercadoBRouter);
-app.use('/mercadoC', mercadoCRouter);
-app.use('/cart', cartRouter);
-app.use('/checkout', checkoutRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -66,4 +57,3 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
-
