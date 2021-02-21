@@ -19,6 +19,7 @@ var mercadoBRouter = require ('./routes/mercadoB');
 var mercadoCRouter = require ('./routes/mercadoC');
 var cartRouter = require ('./routes/cart');
 var checkoutRouter = require ('./routes/checkout');
+var confirmationRouter = require ('./routes/confirmation');
 var app = express();
 
 // view engine setup
@@ -46,6 +47,7 @@ app.use('/mercadoB', mercadoBRouter);
 app.use('/mercadoC', mercadoCRouter);
 app.use('/cart', cartRouter);
 app.use('/checkout', checkoutRouter);
+app.use('/confirmation', confirmationRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
