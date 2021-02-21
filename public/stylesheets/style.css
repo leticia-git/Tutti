@@ -302,12 +302,22 @@ position: static;
 }
 
 #contact{
-font-family:Bacalisties;
-font-size: 50px!important;
+  font-family:Bacalisties;
+  font-size: 50px!important;
+  ;
 }
+
+#text_us{
+  font-family: :Helvetica;
+  text-align:center;
+  }
 
 .col-sm p{
   font-size: 15px;
+  font-family:Helvetica;
+  text-align:center;
+  position:center;
+  
 }
 
 .iframe{
