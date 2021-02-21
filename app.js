@@ -42,7 +42,7 @@ app.use('/contact', contactRouter);
 app.use('/fruta', frutaRouter);
 app.use('/legumes', legumesRouter);
 app.use('/verduras', verdurasRouter);
-app.use('/mercadoA', mercadoRouter);
+app.use('/mercadoA', mercadoARouter);
 app.use('/mercadoB', mercadoBRouter);
 app.use('/mercadoC', mercadoCRouter);
 app.use('/cart', cartRouter);
