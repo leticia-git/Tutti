@@ -302,14 +302,22 @@ position: static;
 }
 
 #contact{
-font-family:Bacalisties;
+font-family: 'Meddon', cursive;
 font-size: 50px!important;
+}
+
+#ondeencontrartexto{
+  background-color: #BAD6AB;
+  ;
 }
 
 
 #text_us{
   font-family:Helvetica;
   text-align:center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   }
 
 .col-sm p{
