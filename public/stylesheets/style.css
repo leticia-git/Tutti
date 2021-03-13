@@ -74,7 +74,7 @@ color: #036838;
 
  footer {
   height: 100px;
-  position: relative;
+  
   background-color: #C6FFB1;
 }
 
@@ -356,3 +356,4 @@ place-items: center;
 .card-img-top{
   border-radius: 20px;
 }
+
