@@ -198,10 +198,19 @@ border-radius: 20px;
 
 }
 
-
 .card{
+  border:none;
+
+}
+
+#banner{
+  border-radius: 20px;
+}
+
+.card img{
   border-radius: 20px;
   margin-top: 10pt;
+
 }
 
 .col-12{
@@ -251,6 +260,9 @@ transform: translateX(0);
 }
 
 .rounded{
+  
+}
+.carousel-item img{
   border-radius: 50px;
 }
 
@@ -347,13 +359,5 @@ place-items: center;
 
 #feira{
   padding-bottom: 120px;
-}
-
-.card{
-  border: none;
-}
-
-.card-img-top{
-  border-radius: 20px;
 }
 
