@@ -5,12 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user');
 var loginRouter = require('./routes/login');
 var recipesRouter = require('./routes/recipes');
 var usRouter = require('./routes/us');
 var contactRouter = require('./routes/contact');
-var registerRouter = require('./routes/register');
+var registerRouter = require('./routes/user');
 var frutaRouter = require('./routes/fruta');
 var legumesRouter = require('./routes/legumes');
 var verdurasRouter = require('./routes/verduras');
@@ -33,11 +33,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/users', userRouter);
 app.use('/login', loginRouter);
 app.use('/recipes', recipesRouter);
 app.use('/us', usRouter);
-app.use('/register', registerRouter);
+app.use('/users', userRouter);
 app.use('/contact', contactRouter);
 app.use('/fruta', frutaRouter);
 app.use('/legumes', legumesRouter);

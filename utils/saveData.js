@@ -13,4 +13,4 @@ const saveData = (array, fileName) => {
   fs.appendFileSync(filePath, dataString);
 }
 
-module.exports = saveData;
+module.exports = saveData; 
