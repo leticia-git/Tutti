@@ -15,4 +15,7 @@ router.get('/login', UserController.login);
 /* processando requisicao do formulario de login para autenticar usuario */
 router.post('/authenticate', UserController.authenticate);
 
+/* processando requisição para efetuar logout */
+router.get('/logout', UserController.logout);
+
 module.exports = router;

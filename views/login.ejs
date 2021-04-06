@@ -31,28 +31,29 @@
         <section id="cover" >
           <div id="cover-caption">
               <div class="container">
-                  <div class="row text-white">
-                      <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                  <div class="row">
+                      <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
                           <div class="px-2">
-                              <form action="" class="justify-content-center">
-                                  <div class="form-group">
-                                      <label class="sr-only">Email</label>
-                                      <input type="text" class="form-control" placeholder="Email">
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="sr-only">Senha</label>
-                                      <input type="password" class="form-control" placeholder="Senha">
-                                  </div>
-                                  <a href="home"><button type="submit" class="btn0 btn-primary btn-lg">Entrar</button></a>
-                              </form>
-                              <a href="register"><button type="submit" class="btn1 btn-primary btn-lg">Cadastre-se</button></a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                             
+      <form action="/users/authenticate" method="POST">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="input-senha">E-mail</label>
+            <input type="email" class="form-control" name="email" id="input-email" placeholder="Email@exemplo.com">
           </div>
-      </section>
-
+          <div class="form-group col-md-12">
+            <label for="input-senha">Senha</label>
+            <input type="password" class="form-control" name="password" id="input-senha" placeholder="Insira sua senha">
+          </div>
+        </div>
+        <% if (typeof notFound !== "undefined") { %>
+          <div class="form-group col-md-12 alert alert-danger">
+            E-mail ou senha inválidos
+          </div>
+        <% } %> 
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </section>
   </main>
   
 

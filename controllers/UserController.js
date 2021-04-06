@@ -10,7 +10,7 @@ module.exports = {
   save(req, res, next){
     let id = users.length + 1;
     /*  criptografando a senha */
-    req.body.password = bcrypt.hashSync(req.body.password, 10);
+    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
 
     /* criando objeto para enviar adicionar no array users */
     let user = { id, ...req.body };
@@ -22,8 +22,7 @@ module.exports = {
 
     res.render('create-user', { added: true });
   },
-
-  login(req, res, next){
+ login(req, res, next){
     res.render('login');
   },
 
@@ -38,7 +37,18 @@ module.exports = {
     if(!bcrypt.compareSync(password, user.password)){
       return res.render('login', { notFound: true });
     }
+    
+    // removendo propriedade password para que o usuario logado nao trafegue com sua senha
+    let { password: pass, ...userWithoutPassword } = user; 
 
+    // criando sessao contendo informacoes do usuario que ira se logar
+    req.session.user = userWithoutPassword;
+
+    res.render('index', { user: req.session.user });
+  },
+
+  logout(req, res, next){
+    req.session.destroy();
     res.redirect('/');
   }
-} 
+}

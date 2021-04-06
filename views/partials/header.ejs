@@ -59,15 +59,37 @@
               <a class="nav-link" href="/contact">Contato</a>
               <a class="nav-link" href="/us">Sobre nós</a>
             </ul>
-              
+           
+            <ul class="navbar-nav ml-auto">
+              <form class="form-inline">
+                <input class="form-control1 input-sm" type="search" placeholder="Procure nossos produtos aqui!" aria-label="Pesquisa">
+                <button class="btn my-2 " type="submit"><img src="/images/Search.png" class="img-fluid"   width="20px"  alt="..."></button>
+              </form>
+              <% if (typeof user !== "undefined") { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/"></a>
+                </li>
+              <% } %>
             </ul>
-            <form class="form-inline">
-              <input class="form-control1 input-sm" type="search" placeholder="Procure nossos produtos aqui!" aria-label="Pesquisa">
-              <button class="btn my-2 " type="submit"><img src="/images/Search.png" class="img-fluid"   width="20px"  alt="..."></button>
-            </form>
-            <a class="user" href="/login"><img src="/images/Ativo 1-8.png" class="img-fluid"   width="30px"  alt="..."></a>
-            <a class="cart" href="cart"><img src="/images/CART.png" class="img-fluid"   width="35px"  alt="..."></a>
-          </div>
+            <ul class="navbar-nav ml-auto">
+              <% if (typeof user !== "undefined") { %>
+                <li class="nav-item">
+                  <a href="/" class="nav-link">Olá, <%= user.name %></a>
+                </li>
+                <li class="nav-item">
+                  <a href="/users/logout" class="nav-link">Sair</a>
+                </li>
+              <% } else { %>
+                <li class="nav-item">
+                  <a href="/users/create" class="nav-link">Cadastre-se</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/users/login" class="nav-link">Login</a>
+                </li>
+               <% } %>
+            </ul>
+           
         </nav>
       </menu>
+ 
       <header>
