@@ -19,7 +19,7 @@ module.exports = {
     recipes.push(recipe);
 
     // executando funcao que salva alteracoes dos registros no arquivo recipe.js
-    saveData(recipes, 'recipe.js');
+    saveData(recipes, 'recipes.js');
 
     res.redirect('/recipes');
   },
