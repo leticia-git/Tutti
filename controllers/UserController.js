@@ -2,6 +2,9 @@ const bcrypt = require('bcrypt');
 const users = require('../data/user');
 const saveData = require('../utils/saveData');
 
+
+
+
 module.exports = {
   create(req, res, next){
     res.render('create-user');
@@ -39,12 +42,12 @@ module.exports = {
     }
     
     // removendo propriedade password para que o usuario logado nao trafegue com sua senha
-    let { password: pass, ...userWithoutPassword } = user; 
+    let { password: pass, ...restOfUser } = user; 
 
     // criando sessao contendo informacoes do usuario que ira se logar
-    req.session.user = userWithoutPassword;
+    req.session.user = restOfUser;
 
-    res.render('index', { user: req.session.user });
+    res.render('index',  { user: req.session.user });
   },
 
   logout(req, res, next){
