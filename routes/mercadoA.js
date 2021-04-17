@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('mercadoA', { user: req.session.user });
+  res.render('mercadoA');
 }); 
 
 module.exports = router;
