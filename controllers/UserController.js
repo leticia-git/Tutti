@@ -44,7 +44,8 @@ module.exports = {
     // criando sessao contendo informacoes do usuario que ira se logar
     req.session.user = userWithoutPassword;
 
-    res.render('index', { user: req.session.user });
+    res.redirect("/")
+    //res.render('index', { user: req.session.user });
   },
 
   logout(req, res, next){
