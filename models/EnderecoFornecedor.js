@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-  const EnderecoCliente = sequelize.define('EnderecoCliente', {
+  const EnderecoFornecedor = sequelize.define('EnderecoFornecedor', {
     id:{
       type:DataType.INTERGER,
       primaryKey:true,
@@ -29,26 +29,18 @@ module.exports = (sequelize, DataType) => {
       type: DataType.STRING,
       allowNull:false
     },
-    destinatario:{
-      type: DataType.STRING,
-      allowNull:false
-    },
-    telefone:{
-      type: DataType.STRING,
-      allowNull:false
-    },
-    fk_dado_enderecocliente:DataType.INTERGER
+    fk_fornecedor_endereco:DataType.INTERGER
   },{
-    tableName:"endereco_cliente",
+    tableName:"endereco_fornecedor",
     timestamps:true
   })
   
-  EnderecoCliente.associate = (model) =>{
-    EnderecoCliente.belongsTo(model.Dado,{
-      foreignKey:"fk_dado_endereco",
-      as:'cliente'
+  EnderecoFornecedor.associate = (model) =>{
+    EnderecoFornecedor.belongsTo(model.Fornecedor,{
+      foreignKey:"fk_fornecedor_endereco",
+      as:'fornecedor'
     })
   }
 
-  return EnderecoCliente;
+  return EnderecoFornecedor;
 }
