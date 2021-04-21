@@ -13,10 +13,19 @@ module.exports = (sequelize, DataType) => {
     password:{
       type: DataType.STRING,
       allowNull:false
-    }
+    },
+    fk_dado_usuario:DataType.INTERGER
   },{
     tableName:"usuario",
     timestamps:true
   })
+  
+  Usuario.associate = (model) =>{
+    Usuario.belongsTo(model.Dado,{
+      foreignKey:"fk_dado_usuario",
+      as:'dados'
+    })
+
+  }
   return Usuario
 }
