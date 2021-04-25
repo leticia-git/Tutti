@@ -1,34 +1,33 @@
 const bcrypt = require('bcrypt');
-const users = require('../data/user');
-const saveData = require('../utils/saveData');
+const {User} = require('../models')
+
 
 module.exports = {
   create(req, res, next){
     res.render('create-user');
   },
 
-  save(req, res, next){
-    let id = users.length + 1;
+  async save(req, res, next){
+ 
     /*  criptografando a senha */
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
 
-    /* criando objeto para enviar adicionar no array users */
-    let user = { id, ...req.body };
-    /* adicionando objeto dentro do array users */
-    users.push(user);
-
-    /* cadastrando no arquivo user.js que sera nosso json de usuarios */
-    saveData(users, 'user.js');
+    /* criando objeto para enviar ao Banco de dados */
+    let user = { ...req.body };
+    
+    /* adicionando objeto dentro do Banco de dados */
+    await User.create(user).catch(err=>console.log(err))
 
     res.render('create-user', { added: true });
   },
- login(req, res, next){
+ 
+  login(req, res, next){
     res.render('login');
   },
 
-  authenticate(req, res, next){
+  async authenticate(req, res, next){
     let { email, password } = req.body;
-    let user = users.find(user => user.email == email);
+    let user = await User.findOne({where:{email:email}});
 
     if(!user){
       return res.render('login', { notFound: true });
