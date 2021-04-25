@@ -20,13 +20,19 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"categories",
+    tableName:"category",
     timestamps:true
   });
   
   Category.associate = (models) =>{
-    Category.hasMany(models.Product,{as:'product'})
-    Category.hasMany(models.Recipe,{as:'recipe'})
+    Category.hasMany(models.Product,{
+      foreignKey:'categoryId',
+      as:'product'
+    })
+    Category.hasMany(models.Recipe,{
+      foreignKey:'categoryId',
+      as:'recipe'
+    })
   };
 
   return Category

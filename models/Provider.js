@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataType) => {
   const Provider = sequelize.define('Provider', {
     id:{
-      type:DataType.INTERGER,
+      type:DataType.INTEGER,
       primaryKey:true,
       autoIncrement:true,
       allowNull:false
@@ -40,13 +40,19 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"providers",
+    tableName:"provider",
     timestamps:true
   });
 
   Provider.associate = (models) =>{
-    Provider.hasOne(models.ProviderAddress,{as:'providerAdress'});
-    Provider.hasMany(models.Product,{as:'product'})
+    Provider.hasOne(models.ProviderAddress,{
+      foreignKey:'providerId',      
+      as:'providerAdress'
+    });
+    Provider.hasMany(models.Product,{
+      foreignKey:'providerId',    
+      as:'product'
+    });
   }
 
   return Provider;

@@ -44,13 +44,12 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"providerAddressess",
+    tableName:"provider_address",
     timestamps:true
   })
   
   ProviderAddress.associate = (models) =>{
     ProviderAddress.belongsTo(models.Provider,{
-      foreignKey:'providerId',
       as:'provider'
     })
   }

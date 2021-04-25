@@ -33,14 +33,13 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"recipes",
+    tableName:"recipe",
     timestamps:true
   })
   
   Recipe.associate = (models) =>{
     Recipe.belongsTo(models.Category,{
-      foreignKey:'categoryId',
-      as:'categoria'
+      as:'category'
     })
   }
 

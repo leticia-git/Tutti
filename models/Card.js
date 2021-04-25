@@ -9,8 +9,7 @@ module.exports = (sequelize, DataType) => {
     flag:DataType.STRING,
     cardNumber:{
       type: DataType.STRING,
-      allowNull:false,
-      unique:true
+      allowNull:false
     },
     cardholder:{
       type: DataType.STRING,
@@ -33,16 +32,18 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"cards",
+    tableName:"card",
     timestamps:true
   });
   
   Card.associate = (models) =>{
     Card.belongsTo(models.User,{
-      foreignKey:'userId',
       as:'user'
     })
-    Card.hasMany(models.Payment,{as:'payment'})
+    Card.hasMany(models.Payment,{
+      foreignKey:'cardId', 
+      as:'payment'
+    })
   };
 
   return Card

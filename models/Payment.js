@@ -29,30 +29,36 @@ module.exports = (sequelize, DataType) => {
     couponId:{
       type: DataType.INTEGER,
       allowNull:false
+    },
+    createdAt:{
+      type:DataType.DATE,
+      allowNull:false
+    },
+    updatedAt:{
+      type:DataType.DATE,
+      allowNull:false
     }
   },{
-    tableName:"payments",
-    timestamps:false
+    tableName:"payment",
+    timestamps:true
   });
 
   Payment.associate = (models) =>{
     Payment.belongsTo(models.UserAddress,{
-      foreignKey:'userAddressId',
-      as:'paymentAddress',
+      as:'userAddress',
     });
     Payment.belongsTo(models.UserData,{
-      foreignKey:'userDataId',
-      as:'userdata'
+      as:'userData'
     });
     Payment.belongsTo(models.Card,{
-      foreignKey:'cardId',
       as:'card'
     });
     Payment.belongsTo(models.Coupon,{
-      foreignKey:'couponId',
       as:'coupon'
     });
-    Payment.hasOne(models.Order,{as:'order'});
+    Payment.hasOne(models.Order,{
+      foreignKey:'paymentId',
+      as:'order'});
   }
 
   return Payment

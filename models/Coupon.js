@@ -32,12 +32,15 @@ module.exports = (sequelize, DataType) => {
         allowNull:false
       }
     },{
-      tableName:"coupons",
+      tableName:"coupon",
       timestamps:true
     });
     
     Coupon.associate = (models) =>{
-        Coupon.hasMany(models.Payment,{as:'payment'});
+        Coupon.hasMany(models.Payment,{
+          foreignKey:'couponId',
+          as:'payment'
+        });
     };
   
     return Coupon

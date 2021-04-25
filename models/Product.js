@@ -37,17 +37,15 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"products",
+    tableName:"product",
     timestamps:true
   })
   
   Product.associate = (models) =>{
     Product.belongsTo(models.Provider,{
-      foreignKey:"providerId",
       as:'provider'
     });
     Product.belongsTo(models.Category,{
-      foreignKey:"categoryId",
       as:"category"
     });
     Product.belongsToMany(models.Order,{
@@ -55,7 +53,9 @@ module.exports = (sequelize, DataType) => {
       as:'orders',
       through:models.OrderItem
     });
-    Product.hasMany(models.Comment,{as:'comment'});
+    Product.hasMany(models.Comment,{
+      foreignKey:'productId',
+      as:'comment'});
   }
 
   return Product;

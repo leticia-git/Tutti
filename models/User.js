@@ -28,16 +28,31 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"users",
+    tableName:"user",
     timestamps:true
   })
   
   User.associate = (model) =>{
-    User.hasOne(model.UserData,{as:'userData'})
-    User.hasMany(model.Card,{as:'card'});
-    User.hasMany(model.Order,{as:'order'});
-    User.hasMany(model.UserAddress,{as:'userAddress'});
-    User.hasMany(model.Comment,{as:'comment'});
+    User.hasOne(model.UserData,{
+      foreignKey:'userId', 
+      as:'userData'
+    });
+    User.hasMany(model.Card,{
+      foreignKey:'userId', 
+      as:'card'
+    });
+    User.hasMany(model.Order,{
+      foreignKey:'userId', 
+      as:'order'
+    });
+    User.hasMany(model.UserAddress,{
+      foreignKey:'userId', 
+      as:'userAddress'
+    });
+    User.hasMany(model.Comment,{
+      foreignKey:'userId', 
+      as:'comment'
+    });
   }
 
   return User

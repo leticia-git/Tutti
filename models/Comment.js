@@ -27,17 +27,15 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"comments",
+    tableName:"comment",
     timestamps:true
   });
   
   Comment.associate = (models) =>{
     Comment.belongsTo(models.Product,{
-      foreignKey:'productId',
       as:'product'
     })
     Comment.belongsTo(models.User,{
-      foreignKey:'userId',
       as:'user'
     })
   };

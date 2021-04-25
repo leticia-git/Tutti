@@ -18,7 +18,7 @@ module.exports = (sequelize, DataType) => {
       type: DataType.FLOAT,
       allowNull:false
     },
-    userAdressId:{
+    userAddressId:{
       type: DataType.INTEGER,
       allowNull:false
     },
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"orders",
+    tableName:"order",
     timestamps:true
   });
   
@@ -48,24 +48,21 @@ module.exports = (sequelize, DataType) => {
       foreignKey:'orderId',
       as:'delivery',
       through:models.Delivery
-    });
+    })
     Order.belongsToMany(models.Product,{
       foreignKey:'orderId',
       as:'product',
       through:models.OrderItem
-    });
+    })
     Order.belongsTo(models.User,{
-      foreignKey:'userId',
       as:'user'
-    });
+    })
     Order.belongsTo(models.Payment,{
-      foreignKey:'paymentId',
-      as:'delivery'
-    });
-    Order.belongsTo(models.UsarAddress,{
-      foreignKey:'userAddressId',
-      as:'deliveryAddress'
-    });
+      as:'payment'
+    })
+    Order.belongsTo(models.UserAddress,{
+      as:'userAddress'
+    })
   }
 
   return Order

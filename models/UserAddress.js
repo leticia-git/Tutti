@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-  const UserAdress = sequelize.define('UserAdress', {
+  const UserAddress = sequelize.define('UserAddress', {
     id:{
       type:DataType.INTEGER,
       primaryKey:true,
@@ -51,16 +51,23 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"userAddresses",
+    tableName:"user_address",
     timestamps:true
   })
   
-  UserAdress.associate = (model) =>{
-    UserAdress.belongsTo(model.User,{
-      foreignKey:"userId",
+  UserAddress.associate = (model) =>{
+    UserAddress.belongsTo(model.User,{
       as:'user'
-    })
+    });
+    UserAddress.hasMany(model.Payment,{
+      foreignKey:'userAddressId',
+      as:'payment'
+    });
+    UserAddress.hasMany(model.Order,{
+      foreignKey:'userAddressId',
+      as:'order'
+    });
   }
 
-  return UserAdress;
+  return UserAddress;
 }

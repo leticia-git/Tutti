@@ -36,17 +36,17 @@ module.exports = (sequelize, DataType) => {
       allowNull:false
     }
   },{
-    tableName:"userDatas",
+    tableName:"user_data",
     timestamps:true
   });
   
   UserData.associate = (model) =>{
-    UserData.belongsTo(model.User,{
-      foreignKey:"userId",
-      as:'user'
+    UserData.belongsTo(model.User,{as:'user'})
+    UserData.hasMany(model.Payment,{
+      foreignKey:'userDataId',
+      as:'payment'
     })
-    UserData.hasMany(model.Payment,{as:'payment'})
-    };
+  };
 
   return UserData;
 }
