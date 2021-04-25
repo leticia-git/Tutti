@@ -38,10 +38,10 @@ module.exports = {
     }
     
     // removendo propriedade password para que o usuario logado nao trafegue com sua senha
-    let { password: pass, ...userWithoutPassword } = user; 
+    user.password = undefined 
 
     // criando sessao contendo informacoes do usuario que ira se logar
-    req.session.user = userWithoutPassword;
+    req.session.user = user;
 
     res.redirect("/")
     //res.render('index', { user: req.session.user });
