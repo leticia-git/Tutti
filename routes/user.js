@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const UserController = require('../controllers/UserController');
+const UserController = require('../controllers/Api/UserController');
 
 /* retornando formulario de cadastro de usuarios */
 router.get('/create', UserController.create);

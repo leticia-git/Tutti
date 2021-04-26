@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const {User} = require('../models')
+const {User} = require('../../models')
 
 
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
 
   async authenticate(req, res, next){
     let { email, password } = req.body;
-    let user = await User.findOne({where:{email:email}});
+    let user = await User.findOne({where:{email}});
 
     if(!user){
       return res.render('login', { notFound: true });
