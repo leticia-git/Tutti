@@ -5,20 +5,22 @@
       </header>
       <main>
         <div class="container">
-          <div class="row" id="feira">
-            <div class="col-sm" id="feira">
-              <div class="row">
-                  <div class="col">
-                      <div class="card text-center" style="width: 9rem; height: 9rem;">
-                          <img src="images/maça1.png" class="card-img-top" alt="...">
+          <div class="col-sm" id="feira">
+            <div class="row">
+                <div class="col">
+                    <% cards.forEach(card => { %>
+                      <div class="col-3  col-lg-2 mt-3 mb-3">
+                        <div class="card">
+                          <img src="<%= card.caminho_de_imagem %>" class="card-img-top" alt="...">
                           <div class="card-body">
-                            <p class="card-text" id="preço" style="color: black;">Maça</p>
-                            <p class="card-text" id="preço" style="color: rgb(70, 69, 69);">3,99 Kg</p>
-                            <a href="cart" class="btn btn-primary">Comprar</a>
+                            <h5 class="card-title"><%= card.titulo %> </h5>
+                            <h5 class="card-text"><%= card.texto %> </h5>
+                            <a href="#" class="btn btn-primary"><%= card.botao %> </a>
                           </div>
                         </div>
-                  </div>
-                  <div class="col">
+                        <% }) %>
+               
+                  <!-- <div class="col">
                       <div class="card text-center" style="width: 9rem; height: 9rem;">
                           <img src="images/morango.png" class="card-img-top" alt="...">
                           <div class="card-body">
@@ -252,7 +254,7 @@
                                           </div>
                                         </div>
                                   </div>
-                                </div>
+                                </div> --> 
                             </div>
       </main>
       </div>
