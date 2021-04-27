@@ -5,22 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 
-var indexRouter = require('./routes/index');
-var userRouter = require('./routes/user');
-var loginRouter = require('./routes/login');
-var recipesRouter = require('./routes/recipes');
-var usRouter = require('./routes/us');
-var contactRouter = require('./routes/contact');
-var registerRouter = require('./routes/user');
-var frutaRouter = require('./routes/fruta');
-var legumesRouter = require('./routes/legumes');
-var verdurasRouter = require('./routes/verduras');
-var mercadoARouter = require ('./routes/mercadoA');
-var mercadoBRouter = require ('./routes/mercadoB');
-var mercadoCRouter = require ('./routes/mercadoC');
-var cartRouter = require ('./routes/cart');
-var checkoutRouter = require ('./routes/checkout');
-var confirmationRouter = require ('./routes/confirmation');
+const routes =  require('./routes/index');
+
+
 var app = express();
 
 // view engine setup
@@ -39,22 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', userRouter);
-app.use('/login', loginRouter);
-app.use('/recipes', recipesRouter);
-app.use('/us', usRouter);
-app.use('/users', userRouter);
-app.use('/contact', contactRouter);
-app.use('/fruta', frutaRouter);
-app.use('/legumes', legumesRouter);
-app.use('/verduras', verdurasRouter);
-app.use('/mercadoA', mercadoARouter);
-app.use('/mercadoB', mercadoBRouter);
-app.use('/mercadoC', mercadoCRouter);
-app.use('/cart', cartRouter);
-app.use('/checkout', checkoutRouter);
-app.use('/confirmation', confirmationRouter);
+app.use(routes)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
