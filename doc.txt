@@ -1,0 +1,85 @@
+const provider= [
+    {
+    'name':'josi',
+    'cnpjCpf':'123456789',
+    'description':'frutas', 
+    'responsible':'compras', 
+    'fone':'1144444444',
+    'register': 0,
+    'status': 1 
+    
+    },
+
+    {
+    'name':'joao',
+    'cnpjCpf':'987654321',
+    'description':'legumes', 
+    'responsible':'fornecedor', 
+    'fone':'119999999',
+    'register':0,
+    'status':0
+    
+    },
+    
+    {
+    'name':'Leticia',
+    'cnpjCpf':'222333444',
+    'description':'verduras', 
+    'responsible':'fornecedor', 
+    'fone':'33333333',
+    'register': 1,
+    'status':0,
+    
+    },
+    {
+    'name':'felipe',
+    'cnpjCpf':'321654987',
+    'description':'sacolas', 
+    'responsible':'fornecedor', 
+    'fone':'45677891',
+    'register':1,
+    'status': 1 ,
+    
+    }
+    ],
+
+
+    const courier= [
+    {
+    'name':'Mario', 
+    'lastName':'Lima',
+    'vehicle':'Fiorino', 
+    'licensePlate':'xxx123', 
+    'register':1 , 
+    'status':0
+    
+    },
+
+    {
+    'name':'Gustavo', 
+    'lastName':'Andrade',
+    'vehicle':'HR 2.5', 
+    'licensePlate':'mon333', 
+    'register':1 , 
+    'status':1
+    
+    },
+    {
+    'name':'VANIA', 
+    'lastName':'PEÇANHA',
+    'vehicle':'FIAT STRADA', 
+    'licensePlate':'FTS000', 
+    'register':0 , 
+    'status':1
+    
+    },
+    {
+    'name':'Gustavo', 
+    'lastName':'Andrade',
+    'vehicle':'KOMBI', 
+    'licensePlate':'mon333', 
+    'register':1 , 
+    'status':1
+    
+    }
+    ],
