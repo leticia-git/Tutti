@@ -3,22 +3,23 @@
       <header>
         <img src="/images/limao1.png" class="img-fluid" style="border-radius: 50px;" alt="...">
       </header>
-      <main>
-        <div class="container">
-          <div class="col-sm" id="feira">
-            <div class="row">
-                <div class="col">
-                    <% cards.forEach(card => { %>
-                      <div class="col-3  col-lg-2 mt-3 mb-3">
-                        <div class="card">
-                          <img src="<%= card.caminho_de_imagem %>" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title"><%= card.titulo %> </h5>
-                            <h5 class="card-text"><%= card.texto %> </h5>
-                            <a href="#" class="btn btn-primary"><%= card.botao %> </a>
-                          </div>
-                        </div>
-                        <% }) %>
+      <main class="container">
+        
+        
+        <div class="card-deck">
+
+          <% cards.forEach(card => { %>
+            <div class="col-3 col-md-3 col-lg-3 mt-3">
+              <div class="card">
+                <img src="<%= card.caminho_de_imagem %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= card.titulo %> </h5>
+                  <h6 class="card-text"><%= card.texto %> </h6>
+                  <a href="#" class="btn btn-primary"><%= card.botao %> </a>
+                </div>
+              </div>
+            </div>
+          <% }) %>
                
                   <!-- <div class="col">
                       <div class="card text-center" style="width: 9rem; height: 9rem;">
@@ -225,7 +226,7 @@
                                           <img src="images/banana1.png" class="card-img-top" alt="...">
                                           <div class="card-body">
                                             <p class="card-text" id="preço" style="color: black;">Banana</p>
-                                            <p class="card-text" id="preço" style="color: rgb(70, 69, 69);">2,99 Kg</p>
+                                            <p class="card-text" id="preço" style="color: rgb(70, 69, 69);">cereja</p>
                                             <a href="#" class="btn btn-primary">Comprar</a>
                                           </div>
                                         </div>
