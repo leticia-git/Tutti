@@ -33,7 +33,7 @@ router.use('/product', productRouter);
 router.use('/category', categoryRouter)
 router.use('/recipes', recipesRouter);
 router.use('/us', usRouter);
-router.use('/user', userRouter);
+router.use('/users', userRouter);
 router.use('/contact', contactRouter);
 router.use('/fruta', frutaRouter);
 router.use('/legumes', legumesRouter);
