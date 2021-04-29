@@ -28,7 +28,7 @@ module.exports = {
   async authenticate(req, res, next){
     let { email, password } = req.body;
     let user = await User.findOne({where:{email}});
-
+    console.log(user);
     if(!user){
       return res.render('login', { notFound: true });
     }
@@ -42,9 +42,10 @@ module.exports = {
 
     // criando sessao contendo informacoes do usuario que ira se logar
     req.session.user = user;
+    console.log(req.session.user)
 
     res.redirect("/")
-    //res.render('index', { user: req.session.user });
+    // res.render('index', { user: req.session.user });
   },
 
   logout(req, res, next){

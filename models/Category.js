@@ -10,14 +10,17 @@ module.exports = (sequelize, DataType) => {
       type: DataType.STRING,
       allowNull: false
     },
-    description:DataType.TEXT,
+    description:{
+      type: DataType.TEXT,
+      allowNull:true
+    },
     createdAt:{
       type:DataType.DATE,
-      allowNull:false
+      allowNull:true
     },
     updatedAt:{
       type:DataType.DATE,
-      allowNull:false
+      allowNull:true
     }
   },{
     tableName:"category",
