@@ -11,10 +11,12 @@
           <% cards.forEach(card => { %>
             <div class="col-3 col-md-3 col-lg-3 mt-3">
               <div class="card">
-                <img src="<%= card.caminho_de_imagem %>" class="card-img-top" alt="...">
+
+                <img src="<%= card.picture %>" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title"><%= card.titulo %> </h5>
-                  <h6 class="card-text"><%= card.texto %> </h6>
+                  <div> <%= product.id %> </div>
+                  <h5 class="card-nome"><%= card.name %> </h5>
+                  <h6 class="card-text"><%= card.price %> </h6>
                   <a href="#" class="btn btn-primary"><%= card.botao %> </a>
                 </div>
               </div>

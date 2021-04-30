@@ -1,124 +1,198 @@
 let cards = [
   {
-    'caminho_de_imagem': '/images/abacate.png',
-    'titulo': 'Abacate', 
-    'texto': '3,99 kg',
+    'id': 1,
+    'name': 'Abacate', 
+    'picture': '/images/abacate.png',
+    'description':'',
+    'price': '3,99 kg',
+    'categoryId':1,
     'botao': 'Comprar'
   },
   {
-    'caminho_de_imagem': '/images/abacaxi.png',
-    'titulo': 'Abacaxi', 
-    'texto': '3,99 kg',
-    'botao': 'Comprar'
+    'id': 2,
+    'name': 'Abacaxi', 
+    'picture': '/images/abacaxi.png',
+    'description':'',
+    'price': '3,99 kg',
+    'categoryId':1,
+    'botao': 'Comprar'    
   },
   {
-    'caminho_de_imagem': '/images/ameixa.png',
-    'titulo': 'Ameixa', 
-    'texto': '25,99 kg',
-    'botao': 'Comprar'
+    'id': 3,
+    'name': 'Ameixa', 
+    'picture': '/images/ameixa.png',
+    'description':'',
+    'price': '25,99 kg',
+    'categoryId':1,
+    'botao': 'Comprar'  
+  
   },
   {
-    'caminho_de_imagem': '/images/amora.png',
-    'titulo': 'Amora', 
-    'texto': '34,99 Kg',
-    'botao': 'Comprar'
-  },
-
-  {
-    'caminho_de_imagem': '/images/banana1.png',
-    'titulo': 'Banana', 
-    'texto': '2,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/cereja.png',
-    'titulo': 'Cereja', 
-    'texto': '49,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/coco.png',
-    'titulo': 'Coco', 
-    'texto': '2,99 Un',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/goiaba1.png',
-    'titulo': 'Goiaba', 
-    'texto': '4,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/kiwi.png',
-    'titulo': 'Kiwi', 
-    'texto': '23,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/limao.png',
-    'titulo': 'Limão', 
-    'texto': '2,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/maça1.png',
-    'titulo': 'Maçã', 
-    'texto': '2,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/maçaverde.png',
-    'titulo': 'Maçã Verde', 
-    'texto': '5,99 Kg',
-    'botao': 'Comprar'
+    'id': 4,
+    'name': 'Amora', 
+    'picture': '/images/amora.png',
+    'description':'',
+    'price': '34,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar'  
   },
 
   {
-    'caminho_de_imagem': '/images/manga.png',
-    'titulo': 'Manga', 
-    'texto': '5,99 Kg',
+    'id': 5,
+    'name': 'Banana', 
+    'picture': '/images/banana1.png',
+    'description':'',
+    'price': '2,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar' 
+  },
+  {
+    'id': 6,
+    'name': 'Cereja', 
+    'picture': '/images/cereja.png',
+    'description':'',
+    'price': '49,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar' 
+
+  },
+  {
+
+    'id': 7,
+    'name': 'Coco', 
+    'picture': '/images/coco.png',
+    'description':'',
+    'price': '2,99 Un',
+    'categoryId':1,
+    'botao': 'Comprar' 
+  },
+  {
+
+    'id': 8,
+    'name': 'Goiaba', 
+    'picture': '/images/goiaba1.png',
+    'description':'',
+    'price': '4,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar' 
+
+  },
+  {
+    'id': 9,
+    'name': 'Kiwi', 
+    'picture': '/images/kiwi.png',
+    'description':'',
+    'price': '23,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar' 
+  },
+  {
+    'id': 10,
+    'name': 'Limão', 
+    'picture': '/images/limao.png',
+    'description':'',
+    'price': '2,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar' 
+
+  },
+  {
+    'id': 11,
+    'name': 'Maçã', 
+    'picture': '/images/maça1.png',
+    'description':'',
+    'price': '2,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar' 
+  },
+  {
+    'id': 12,
+    'name': 'Maçã Verde', 
+    'picture': '/images/maçaverde.png',
+    'description':'',
+    'price': '5,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar' 
+  },
+
+  {
+    'id': 13,
+    'name': 'Manga', 
+    'picture': '/images/manga.png',
+    'description':'',
+    'price': '5,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar' 
+  },
+  {
+    'id': 14,
+    'name': 'Melancia', 
+    'picture': '/images/melancia.png',
+    'description':'',
+    'price': '9,99 Un',
+    'categoryId':1,
+    'botao': 'Comprar' 
+
+  },
+  {
+    'id': 15,
+    'name': 'Morango', 
+    'picture': '/images/morango.png',
+    'description':'',
+    'price': '5,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar' 
+    
+  },
+  {
+    'id': 16,
+    'name': 'Laranja', 
+    'picture': '/images/orange.png',
+    'description':'',
+    'price': '2,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar' 
+    
+    
+  },
+  {
+    'id': 17,
+    'name': 'Mamão', 
+    'picture': '/images/papaya.png',
+    'description':'',
+    'price': '5,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar'
+
+
+    
+  },
+  {
+    'id': 18,
+    'name': 'Pêssego', 
+    'picture': '/images/pêssego.png',
+    'description':'',
+    'price': '7,99 Kg',
+    'categoryId':1,
+    'botao': 'Comprar'
+
+  },
+  {
+    'id': 19,
+    'name': 'Uva', 
+    'picture': '/images/uva.png',
+    'description':'',
+    'price': '6,99 Kg',
+    'categoryId':1,
     'botao': 'Comprar'
   },
   {
-    'caminho_de_imagem': '/images/melancia.png',
-    'titulo': 'Melancia', 
-    'texto': '9,99 Un',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/morango.png',
-    'titulo': 'Morango', 
-    'texto': '5,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/orange.png',
-    'titulo': 'Laranja', 
-    'texto': '2,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/papaya.png',
-    'titulo': 'Mamão', 
-    'texto': '5,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/pêssego.png',
-    'titulo': 'Pêssego', 
-    'texto': '7,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/uva.png',
-    'titulo': 'Uva', 
-    'texto': '6,99 Kg',
-    'botao': 'Comprar'
-  },
-  {
-    'caminho_de_imagem': '/images/pera.png',
-    'titulo': 'Perâ', 
-    'texto': '6,99 Kg',
+    'id': 20,
+    'name': 'Perâ', 
+    'picture': '/images/pera.png',
+    'description':'',
+    'price': '6,99 Kg',
+    'categoryId':1,
     'botao': 'Comprar'
   },
 
