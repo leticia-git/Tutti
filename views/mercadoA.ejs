@@ -6,15 +6,14 @@
       <main class="container">
         
         
-        <div class="card-deck">
+        <div class="card-deck" >
 
           <% cards.forEach(card => { %>
-            <div class="col-3 col-md-3 col-lg-3 mt-3">
+            
+            <div class="col-6 col-md-3 col-lg-3  mt-3" >
               <div class="card">
-
-                <img src="<%= card.picture %>" class="card-img-top" alt="...">
+                <img src="<%= card.picture %>" class="card-img-top" alt="..."  style="width: 9rem; height: 9rem;" >
                 <div class="card-body">
-                  <div> <%= product.id %> </div>
                   <h5 class="card-nome"><%= card.name %> </h5>
                   <h6 class="card-text"><%= card.price %> </h6>
                   <a href="#" class="btn btn-primary"><%= card.botao %> </a>
