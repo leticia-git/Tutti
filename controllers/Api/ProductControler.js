@@ -19,14 +19,14 @@ module.exports = {
        try{
            let {id} = req.params
            let product = await Product.findByPk(id,{include:'provider'})
-            if(product !== undefined){
+            if(product.name !== undefined){
                 let provider = product.providerId
-                let vendorProducts = await Product.findAll({where:{providerId:provider}})
-                let vendorSugestion = vendorProducts.filter(products=>products.id !== vendorProducts.id )
-                console.log(vendorSugestion)
-                return res.render('product',{user: req.session.user, product:product, vendor:vendorSugestion})
+                let vendorProducts = await Product.findAll({where:{providerId:provider}, limit:5})
+                let vendorSugestion = vendorProducts.filter(products=>product.id !== products.id )
+                return res.render('product',{user: req.session.user, product:product, vendorSugestion:vendorSugestion})
+            } else {
+                res.send('A pagina para esse produto não exite')
             }
-           
         }
         catch(error) {
             return res.render('error', {message:'Error: ' + error.message})
@@ -67,9 +67,20 @@ module.exports = {
     },
     async searchProduct(req, res, next){
         let product = req.query.productName;
-        console.log('\n\n', product,'\n\n');
+
         let searchProducts = await Product.findAll({where:{name:product}}).catch(error => console.log(error));
-        if(searchProducts !== undefined){
+        
+        function isEmptyObject(products) {
+            var name;
+            for (name in products) {
+              return false;
+            }
+            return true;
+          }
+          
+        let vazio = isEmptyObject(searchProducts);
+        
+        if(!vazio){
             res.send(searchProducts)
         } else{
             res.send('o produto que vc procura não foi encontrado!')
