@@ -31,8 +31,8 @@
           </ul>
          
           <ul class="navbar-nav ml-auto">
-            <form class="form-inline" style="margin-bottom: 0px; margin-right: 10px;" >
-              <input class="form-control1 input-sm" type="search" id="searchForm" placeholder="Procure nossos produtos aqui!" aria-label="Pesquisa">
+            <form class="form-inline" style="margin-bottom: 0px; margin-right: 10px;" action="/search" method="GET">
+              <input class="form-control1 input-sm" name="productName" type="text" placeholder="Procure nossos produtos aqui!" aria-label="Pesquisa">
               <button class="btn my-2 " id="searchBotton" type="submit"><img src="/images/Search.png" class="img-fluid"   width="20px"  alt="..."></button>
             </form>
             <% if (typeof user !== "undefined") { %>

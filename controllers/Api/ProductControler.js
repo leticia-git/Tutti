@@ -19,7 +19,7 @@ module.exports = {
        try{
            let {id} = req.params
            let product = await Product.findByPk(id,{include:'provider'})
-            if(product != undefined){
+            if(product !== undefined){
                 let provider = product.providerId
                 let vendorProducts = await Product.findAll({where:{providerId:provider}})
                 let vendorSugestion = vendorProducts.filter(products=>products.id !== vendorProducts.id )
@@ -63,6 +63,16 @@ module.exports = {
             return res.status(201).json(category)
         } catch (error){
             return res.status(400).json({message:'Error: ' + error.messege})
+        }
+    },
+    async searchProduct(req, res, next){
+        let product = req.query.productName;
+        console.log('\n\n', product,'\n\n');
+        let searchProducts = await Product.findAll({where:{name:product}}).catch(error => console.log(error));
+        if(searchProducts !== undefined){
+            res.send(searchProducts)
+        } else{
+            res.send('o produto que vc procura não foi encontrado!')
         }
     }
 

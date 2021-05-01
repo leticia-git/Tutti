@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const ProviderController = require('../controllers/Api/ProviderController')
+const ProviderController = require('../controllers/Api/ProviderController');
+const ProductController = require('../controllers/Api/ProductControler');
 const userRouter = require('./user');
 const productRouter = require('./products')
 const categoryRouter = require('./category')
@@ -28,6 +29,8 @@ router.post('/provider/create', ProviderController.create);
 router.get('/us', function(req, res, next) {
   res.render('us', {user: req.session.user});
 }); 
+
+router.get('/search', ProductController.searchProduct)
 
 
 
