@@ -6,10 +6,10 @@
         <div class="container">
             <div class="row">
               <div class="col-sm">
-                  <h2>Maçã Gala</h2>
+                  <h2><%= product.name %></h2>
 
-                <img class="img-fluid" src="images/maça.png" style="border-radius:20px ;">
-                <p style="font-size: 20px;">R$ 2,99 Kg</p>
+                <img class="img-fluid" src="<%=product.picture%>" style="border-radius:20px ;">
+                <p style="font-size: 20px;">R$ <%= product.price.toFixed(2) %></p>
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="customSwitch1">
                     <label class="custom-control-label" for="customSwitch1">Kilos</label>
@@ -36,7 +36,7 @@
     <main><div class="container">
         <div class="row">
           <div class="col-sm">
-            <h1 class="text-center">Quem compra costuma levar: </h1>
+            <h2 class="text-center">Outros produtos de <%= product.provider.name %> </h2>
             <div class="container">
                 <div class="row">
                   <div class="col-sm" id="feira">

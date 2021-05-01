@@ -7,7 +7,8 @@ module.exports = {
            let products = await Product.findAll({
                include:'provider'
            })
-            return res.status(200).json(products)
+           let productActive = products.filter(products => products.provider.status === 1)
+            return res.status(200).json(productActive)
         }
         catch(error) {
             return res.status(400).json({message:'Error: ' + error.message})
@@ -18,10 +19,17 @@ module.exports = {
        try{
            let {id} = req.params
            let product = await Product.findByPk(id,{include:'provider'})
-            return res.status(200).json(product)
+            if(product != undefined){
+                let provider = product.providerId
+                let vendorProducts = await Product.findAll({where:{providerId:provider}})
+                let vendorSugestion = vendorProducts.filter(products=>products.id !== vendorProducts.id )
+                console.log(vendorSugestion)
+                return res.render('product',{user: req.session.user, product:product, vendor:vendorSugestion})
+            }
+           
         }
         catch(error) {
-            return res.status(400).json({message:'Error: ' + error.message})
+            return res.render('error', {message:'Error: ' + error.message})
         }
     },
     async category(req, res, next){

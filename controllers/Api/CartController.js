@@ -30,5 +30,8 @@ module.exports = {
             return res.status(400).json({message:'Error: ' + error.messege})
         }
 
+    },
+    async index(req, res, next){
+        
     }
 }

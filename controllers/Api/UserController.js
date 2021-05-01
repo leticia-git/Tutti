@@ -28,7 +28,6 @@ module.exports = {
   async authenticate(req, res, next){
     let { email, password } = req.body;
     let user = await User.findOne({where:{email}});
-    console.log(user);
     if(!user){
       return res.render('login', { notFound: true });
     }

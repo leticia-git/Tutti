@@ -1,8 +1,22 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-
-var ProviderController = require('../controllers/Api/ProviderController')
+const ProviderController = require('../controllers/Api/ProviderController')
+const userRouter = require('./user');
+const productRouter = require('./products')
+const categoryRouter = require('./category')
+const loginRouter = require('./login');
+const recipesRouter = require('./recipes');
+const contactRouter = require('./contact');
+const frutaRouter = require('./fruta');
+const legumesRouter = require('./legumes');
+const verdurasRouter = require('./verduras');
+const mercadoARouter = require ('./mercadoA');
+const mercadoBRouter = require ('./mercadoB');
+const mercadoCRouter = require ('./mercadoC');
+const cartRouter = require ('./cart');
+const checkoutRouter = require ('./checkout');
+const confirmationRouter = require ('./confirmation');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,28 +25,17 @@ router.get('/', function(req, res, next) {
 
 router.post('/provider/create', ProviderController.create);
 
-var userRouter = require('./user');
-var productRouter = require('./products')
-var categoryRouter = require('./category')
-var loginRouter = require('./login');
-var recipesRouter = require('./recipes');
-var usRouter = require('./us');
-var contactRouter = require('./contact');
-var frutaRouter = require('./fruta');
-var legumesRouter = require('./legumes');
-var verdurasRouter = require('./verduras');
-var mercadoARouter = require ('./mercadoA');
-var mercadoBRouter = require ('./mercadoB');
-var mercadoCRouter = require ('./mercadoC');
-var cartRouter = require ('./cart');
-var checkoutRouter = require ('./checkout');
-var confirmationRouter = require ('./confirmation');
+router.get('/us', function(req, res, next) {
+  res.render('us', {user: req.session.user});
+}); 
+
+
 
 router.use('/login', loginRouter);
 router.use('/product', productRouter);
 router.use('/category', categoryRouter)
 router.use('/recipes', recipesRouter);
-router.use('/us', usRouter);
+
 router.use('/users', userRouter);
 router.use('/contact', contactRouter);
 router.use('/fruta', frutaRouter);
