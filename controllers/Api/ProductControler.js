@@ -72,7 +72,7 @@ module.exports = {
         if(searchProducts !== undefined){
             res.send(searchProducts)
         } else{
-            res.send('o produto que vc procura não foi encontrado!')
+            res.render('erro')
         }
     }
 

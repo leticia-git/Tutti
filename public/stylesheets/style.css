@@ -83,6 +83,7 @@ footer.icons {
   position: relative;
 }
 
+
 .texto1{
   font-size: 17px;
 }
@@ -376,6 +377,10 @@ place-items: center;
   list-style: none; /* rita a "bolinha" do LI*/
 }
 
-.dropdown-item:active{
+.nav-item:active{
 color:rgb(0, 53, 0);
+}
+
+.btn-lg{
+  background-color:rgb(0, 53, 0) ;
 }
