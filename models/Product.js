@@ -28,6 +28,21 @@ module.exports = (sequelize, DataType) => {
       type: DataType.INTEGER,
       allowNull:false
     },
+    sale:{
+      type: DataType.TINYINT,
+      allowNull:true,
+      defaultValue:0
+    },
+    nutrition:
+    {
+      type: DataType.STRING,
+      defaultValue:'/images/tabelamaça.png'
+    },
+    salePrice:
+    {
+      type: DataType.FLOAT,
+      allowNull:true
+    },
     createdAt:{
       type:DataType.DATE,
       allowNull:false
