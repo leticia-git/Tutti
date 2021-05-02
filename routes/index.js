@@ -19,6 +19,7 @@ const cartRouter = require ('./cart');
 const checkoutRouter = require ('./checkout');
 const confirmationRouter = require ('./confirmation');
 const erroRouter = require ('./erro');
+const clientRouter = require ('./client');
 /* GET home page. */
 
 router.get('/', ProductController.index);
@@ -48,5 +49,5 @@ router.use('/cart', cartRouter);
 router.use('/checkout', checkoutRouter);
 router.use('/confirmation', confirmationRouter);
 router.use('/erro', erroRouter);
-
+router.use('/client', clientRouter);
 module.exports = router;
