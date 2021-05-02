@@ -41,6 +41,7 @@ module.exports = {
 
     // criando sessao contendo informacoes do usuario que ira se logar
     req.session.user = user;
+    
 
     res.redirect("/")
     // res.render('index', { user: req.session.user });

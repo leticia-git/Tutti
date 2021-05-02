@@ -1,4 +1,4 @@
-const {Coupon} = require('../../models')
+const {Cart, Coupon} = require('../../models')
 
 module.exports = {
     async cupom (req, res, next){
@@ -32,18 +32,36 @@ module.exports = {
 
     },
     
-    addItem(req, res, next){
-        let cart = req.session.cart;
-        if(cart == undefined || cart == null){
-            req.session.cart = [];
-            let item = req.body;
-            res.send(item)
-
-        } else {
-            let newItem = req.body;
-            cart.push(newItem)
-            req.session.cart = cart;
-            res.send('cai no else, tem coisa no cart: ' + cart)
+    async addItem(req, res, next){
+        try{
+            let {quantity, productId, name, sale, price, salePrice, userId} = req.body;
+            if(sale == 1){
+                let total = salePrice * quantity / 1000;
+                let itemAdd = await Cart.create({
+                    name:name, 
+                    price:salePrice, 
+                    quantity:quantity, 
+                    itemTotal:total, 
+                    userId:userId, 
+                    productId:productId
+                });
+                console.log(itemAdd)
+                return res.redirect('/checkout')
+            } else {
+                let total = price * quantity / 1000;
+                let itemAdd = await Cart.create({
+                    name:name, 
+                    price:price, 
+                    quantity:quantity, 
+                    itemTotal:total, 
+                    userId:userId, 
+                    productId:productId
+                });
+                console.log(itemAdd)
+                return res.redirect('/checkout')
+            }
+        } catch(error){
+            return res.render('erro', {message:'Não conseguimos processar sua solicitação, verifique se está logado!'})
         }
     },
 

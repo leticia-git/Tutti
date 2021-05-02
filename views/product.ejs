@@ -6,16 +6,22 @@
         <div class="container">
             <div class="row text-center" style="font-family: helvetica!important;font-size: 15px!important;">
               <div class="col-sm">
+                <form method="POST" action="/cart/addItem">
                   <h2><%= product.name %></h2>
-                <img class="img-fluid" src="<%=product.picture%>" style="border-radius:20px ;">
-                <p style="font-size: 20px!important">R$ <%= product.price.toFixed(2) %></p>
-                <div data-app="product.quantity" id="quantidade">
-                  <label>Qtd:</label>      
-                  <input type="button" id="minus" value='-' onclick="process(-1)" />
-                  <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
-                  <input type="button" id="plus" value='+' onclick="process(1)">
-                </div>
-                  <input type="hidden" name="produtoId" value="<%=product.id%>"/>
+                  <img class="img-fluid" src="<%=product.picture%>" style="border-radius:20px ;">
+                  <p style="font-size: 20px!important">R$ <%= product.price.toFixed(2) %> Kg</p>
+                  <div data-app="product.quantity" id="quantidade">
+                    <label>Qtd(g):</label>      
+                    <input type="button" id="minus" value='-' onclick="process(-50)" />
+                    <input id="quant" name="quantity" class="text" size="1" type="text" value="100" maxlength="10000" />
+                    <input type="button" id="plus" value='+' onclick="process(50)">
+                  </div>
+                  <input type="hidden" name="productId" value="<%=product.id%>"/>
+                  <input type="hidden" name="name" value="<%=product.name%>"/>
+                  <input type="hidden" name="sale" value="<%=product.sale%>"/>
+                  <input type="hidden" name="price" value="<%=product.price%>"/>
+                  <input type="hidden" name="salePrice" value="<%=product.salePrice%>"/>
+                  <input type="hidden" name="userId" value="<%=user.id%>"/>
                   <button type="submit" class="btn btn-primary mb-2" >Adicionar ao carrinho</button>
                                 <!-- <form class="form-inline">
                     <button type="submit" class="btn btn-primary mb-2"> - </button>
@@ -25,10 +31,11 @@
                       <input type="password" class="form-control" id="inputPassword2" placeholder="0">
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">+</button>
-                </form> -->
-                </div>
+                    </form> -->
+                </form>
+              </div>
               
-              </form>
+           
               
               <div class="col-sm">
                 <img class="img-fluid"  id="tabelamaça"src="<%=product.nutrition%>" width="300px">
