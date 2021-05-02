@@ -4,6 +4,20 @@ const Sequelize = require('sequelize')
 
 module.exports = {
     async index(req, res, next){
+        try { 
+            let products = await Product.findAll({
+                include:'provider',
+                offset:5
+            })
+            
+            let saleProducts = products.filter(products=>products.sale ==1)
+            return res.render('index', {title: 'Tutti', user:req.session.user, products:saleProducts})
+         }
+         catch(error) {
+             return res.render('erro',{user:req.session.user, message:'Algo deu errado!'})
+         }
+     },
+    async indexProduct(req, res, next){
        try { 
            let product = await Product.findAll({
                include:'provider'

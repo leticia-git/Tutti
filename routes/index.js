@@ -21,9 +21,7 @@ const confirmationRouter = require ('./confirmation');
 const erroRouter = require ('./erro');
 /* GET home page. */
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Tutti', user: req.session.user });
-});
+router.get('/', ProductController.index);
 router.get('/contact', function(req,res){
     res.render('contact', {user: req.session.user})
 })
