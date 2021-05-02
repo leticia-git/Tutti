@@ -1,3 +1,4 @@
+const { render } = require('../../app')
 const {Cart, Coupon} = require('../../models')
 
 module.exports = {
@@ -57,8 +58,7 @@ module.exports = {
                     userId:userId, 
                     productId:productId
                 });
-                console.log(itemAdd)
-                return res.redirect('/checkout')
+                return res.redirect('/checkout',{user:req.session.user})
             }
         } catch(error){
             return res.render('erro', {message:'Não conseguimos processar sua solicitação, verifique se está logado!'})
@@ -66,6 +66,19 @@ module.exports = {
     },
 
     async index(req, res, next){
-        
+        try{
+            let user = req.session.user;
+            console.log('\n\n O Id é: ' + user.id + '\n\n')
+            let itensCart = await Cart.findAll({
+             where:{
+                 userId:user.id
+                }
+            });
+            return res.send(itensCart);
+        } catch (error) {
+            return res.render('erro', {message: 'Não conseguimos identificar você!\nPor favor, realize o login!', user: req.session.user})
+        }
+
+
     }
 }
