@@ -4,14 +4,12 @@
 
     <header>
         <div class="container">
-            <div class="row">
+            <div class="row text-center" style="font-family: helvetica!important;font-size: 15px!important;">
               <div class="col-sm">
                   <h2><%= product.name %></h2>
-
                 <img class="img-fluid" src="<%=product.picture%>" style="border-radius:20px ;">
-                <p style="font-size: 20px;">R$ <%= product.price.toFixed(2) %></p>
+                <p style="font-size: 20px!important">R$ <%= product.price.toFixed(2) %></p>
                 <div data-app="product.quantity" id="quantidade">
-                  <span id="span_erro_carrinho" class="blocoAlerta" style="display:none;">Selecione uma opção para variação do produto</span>
                   <label>Qtd:</label>      
                   <input type="button" id="minus" value='-' onclick="process(-1)" />
                   <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
