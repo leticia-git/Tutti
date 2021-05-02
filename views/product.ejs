@@ -10,15 +10,7 @@
 
                 <img class="img-fluid" src="<%=product.picture%>" style="border-radius:20px ;">
                 <p style="font-size: 20px;">R$ <%= product.price.toFixed(2) %></p>
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1">Kilos</label>
-                  </div>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1">Gramas</label>
-                  </div>
-                  <form class="form-inline">
+                                <form class="form-inline">
                     <button type="submit" class="btn btn-primary mb-2"> - </button>
                     <div class="form-group mx-sm-1 mb-2" >
                    
@@ -33,12 +25,10 @@
                 <img class="img-fluid"  id="tabelamaça"src="<%=product.nutrition%>" width="300px">
               </div>
             </header>
-    <main>
+           <main>
             <h2 class="text-center">Outros produtos de <%= product.provider.name %> </h2>
               <div class="container">
-                    <div class="row feira mb-3 " style="justify-content: space-evenly; position: relative;"  >
-                  
-                      
+                    <div class="row feira mb-3 " style="justify-content: space-evenly;" id="feira" >
                           <% vendorSugestion.forEach(product => { %>   
                             <div class="card text-center" style="width: 8rem; height: 8rem;">
                               <img src="<%=product.picture%>" class="card-img-top" alt="...">
@@ -53,13 +43,8 @@
                       </div>
                   </div>
                 </div>
-
               </div>
-
             </div>
-
-          </div>
-
                 </main>
                   <%- include('./partials/wpp') %> 
                   <%- include('./partials/footer') %> 
