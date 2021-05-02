@@ -3,12 +3,12 @@ const router = express.Router();
 
 const ProviderController = require('../controllers/Api/ProviderController');
 const ProductController = require('../controllers/Api/ProductControler');
+
 const userRouter = require('./user');
 const productRouter = require('./products')
 const categoryRouter = require('./category')
 const loginRouter = require('./login');
 const recipesRouter = require('./recipes');
-const contactRouter = require('./contact');
 const frutaRouter = require('./fruta');
 const legumesRouter = require('./legumes');
 const verdurasRouter = require('./verduras');
@@ -20,17 +20,18 @@ const checkoutRouter = require ('./checkout');
 const confirmationRouter = require ('./confirmation');
 const erroRouter = require ('./erro');
 /* GET home page. */
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Tutti', user: req.session.user });
 });
-
-router.post('/provider/create', ProviderController.create);
-
+router.get('/contact', function(req,res){
+    res.render('contact', {user: req.session.user})
+})
 router.get('/us', function(req, res, next) {
   res.render('us', {user: req.session.user});
 }); 
-
 router.get('/search', ProductController.searchProduct)
+router.post('/provider/create', ProviderController.create);
 
 
 
@@ -38,9 +39,7 @@ router.use('/login', loginRouter);
 router.use('/product', productRouter);
 router.use('/category', categoryRouter)
 router.use('/recipes', recipesRouter);
-
 router.use('/users', userRouter);
-router.use('/contact', contactRouter);
 router.use('/fruta', frutaRouter);
 router.use('/legumes', legumesRouter);
 router.use('/verduras', verdurasRouter);

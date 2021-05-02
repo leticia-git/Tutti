@@ -5,14 +5,13 @@ const Sequelize = require('sequelize')
 module.exports = {
     async index(req, res, next){
        try { 
-           let products = await Product.findAll({
+           let product = await Product.findAll({
                include:'provider'
            })
-           let productActive = products.filter(products => products.provider.status === 1)
-            return res.status(200).json(productActive)
+            return res.render('mercadoGeral', {user:req.session.user, products:product})
         }
         catch(error) {
-            return res.status(400).json({message:'Error: ' + error.message})
+            return res.render('erro',{user:req.session.user, message:'Algo deu errado!'})
         }
     },
     
@@ -26,24 +25,37 @@ module.exports = {
                 let vendorSugestion = vendorProducts.filter(products=>product.id !== products.id )
                 return res.render('product',{user: req.session.user, product:product, vendorSugestion:vendorSugestion})
             } else {
-                res.send('A pagina para esse produto não exite')
+                return res.render('erro',{user:req.session.user, message:'Não encontramos este produto!'})
             }
         }
         catch(error) {
-            return res.render('error', {message:'Error: ' + error.message})
+            return res.render('erro',{user:req.session.user, message:'Algo deu errado!'})
         }
     },
     async category(req, res, next){
         try{
             let id = req.params.id
-            let category = await Product.findAll({
+            var categoryProducts = await Product.findAll({
                 where:{
                     categoryId:id
                 }
             })
-            return res.status(200).json(category)
+            
+           if(id==1){
+            console.log(`\n\n To chegando até aquino primeiro if\n O Id é:${id}\n`)
+            return res.render('mercadoA', {user:req.session.user, category:categoryProducts});
+           } 
+           else if(id==2){
+            return res.render('mercadoB', {user:req.session.user, category:categoryProducts});
+           }
+           else if(id==3){
+            return res.render('mercadoC', {user:req.session.user, category:categoryProducts});
+           }
+           else{
+               return res.render('erro', {user:req.session.user, message:'não encontramos esta categoria'});
+           }
         } catch (error){
-            return res.status(400).json({messege: error})
+            return res.render('erro', {user:req.session.user, message:'não encontramos esta categoria'});
         }
     },
     async create(req, res, next){
@@ -82,9 +94,9 @@ module.exports = {
         let vazio = isEmptyObject(searchProducts);
         
         if(!vazio){
-            res.send(searchProducts)
+            return res.render('mercadoGeral', {user:req.session.user, products:searchProducts})
         } else{
-            res.render('erro')
+            res.render('erro',{message:'Não encontramos esse produto!'});
         }
     }
 
