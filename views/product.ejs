@@ -8,7 +8,7 @@
               <div class="col-sm">
                   <h2><%= product.name %></h2>
                 <img class="img-fluid" src="<%=product.picture%>" style="border-radius:20px ;">
-                <p style="font-size: 20px!important">R$ <%= product.price.toFixed(2) %></p>
+                <p style="font-size: 20px!important">R$ <%= product.price.toFixed(2) %> /Kg</p>
                 <div data-app="product.quantity" id="quantidade">
                   <label>Qtd:</label>      
                   <input type="button" id="minus" value='-' onclick="process(-1)" />
@@ -39,7 +39,7 @@
                                 <img src="<%=product.picture%>" class="card-img-top" alt="...">
                                 <div class="card-body">
                                   <p class="card-text" id="preço" style="color: black;"><%=product.name%></p>
-                                  <p class="card-text" id="preço" style="color: rgb(70, 69, 69);">R$ <%=product.price%> /Kg</p>
+                                  <p class="card-text" id="preço" style="color: rgb(70, 69, 69);">R$ <%=product.price%>/Kg</p>
                                   <a href="/product/<%=product.id%>" class="btn btn-primary">Comprar</a>
                                 </div>
                               </div>
