@@ -650,7 +650,7 @@ const criarProdutos = async () =>{
     ])
 }
 
-criarMuitosProviders();
-criarCategorias();
+// criarMuitosProviders();
+// criarCategorias();
 criarProdutos()
 

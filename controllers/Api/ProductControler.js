@@ -1,4 +1,5 @@
 const {Product, Category} = require('../../models');
+const Sequelize = require('sequelize')
 
 
 module.exports = {
@@ -68,7 +69,7 @@ module.exports = {
     async searchProduct(req, res, next){
         let product = req.query.productName;
 
-        let searchProducts = await Product.findAll({where:{name:product}}).catch(error => console.log(error));
+        let searchProducts = await Product.findAll({where:{name:{[Sequelize.Op.like]:`%${product}%`}}}).catch(error => console.log(error));
         
         function isEmptyObject(products) {
             var name;
