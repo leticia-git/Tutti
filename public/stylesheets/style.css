@@ -74,13 +74,13 @@ color: #036838;
  footer {
   height: 100px;
   background-color: #C6FFB1;
-  position: relative;
+
 }
 
 footer.icons {
   font-size: 20px;
   background-color: #ffa500;
-  position: relative;
+
 }
 
 
@@ -409,3 +409,61 @@ color:rgb(0, 53, 0);
   border-color:#f89606;
 }
 
+
+
+
+/* MINHA CONTA  */
+
+
+.my-account {
+  position: relative;
+  padding: 30px 0;
+}
+
+.my-account .nav.nav-pills .nav-link {
+  padding: 10px 15px;
+  color: #353535;
+  background: #ffffff;
+  border-radius: 0;
+  border-bottom: 1px solid #dddddd;
+  transition: all .3s;
+}
+
+.my-account .nav.nav-pills .nav-link:last-child {
+  border-bottom: none;
+}
+
+.my-account .nav.nav-pills .nav-link:hover,
+.my-account .nav.nav-pills .nav-link.active {
+  color: #ffffff;
+  background: #f89606;
+  border-radius: 4px;
+}
+
+.my-account .nav.nav-pills .nav-link i {
+  margin-right: 5px;
+}
+
+.my-account .tab-content {
+  padding: 30px;
+  background: #ffffff;
+}
+
+.my-account .tab-content .table {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.my-account .tab-content .table .thead-dark th {
+  text-align: center;
+  color: #353535;
+  background: #ffffff;
+  border-color: #dddddd;
+  border-bottom: none;
+  vertical-align: middle;
+}
+
+.my-account .tab-content .table td {
+  vertical-align: middle;
+}
