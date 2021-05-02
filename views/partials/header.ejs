@@ -16,21 +16,19 @@
               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Feira
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle text-justify" href="http://localhost:3333/category/1">Frutas</a>
-                    
-                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle text-justify" href="http://localhost:3333/category/2">Legumes</a>
-                            
-                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle " href="http://localhost:3333/category/3">Verduras</a>
-                  
-                </li>
-              </ul>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Frutas</a>
+                <a class="dropdown-item" href="#">Verduras</a>
+                <a class="dropdown-item" href="#">Legumes</a>
             </li>
             <a class="nav-link" href="/contact">Contato</a>
             <a class="nav-link" href="/us">Sobre nós</a>
           </ul>
          
           <ul class="navbar-nav ml-auto">
+
+
+
             <form class="form-inline" style="margin-bottom: 0px; margin-right: 10px;" action="/search" method="GET">
               <input class="form-control1 input-sm" name="productName" type="text" placeholder="Procure nossos produtos aqui!" aria-label="Pesquisa">
               <button class="btn my-2 " id="searchBotton" type="submit"><img src="/images/Search.png" class="img-fluid"   width="20px"  alt="..."></button>
@@ -40,7 +38,9 @@
                 <a class="nav-link" href="/"></a>
               </li>
             <% } %>
+            <a href=""><img src="/images/cesta-8.png" class=" img-fluid mt-2"   width="40 px" height="40px"  alt="..."></a>
           </ul>
+         
           <ul class="navbar-nav ml-auto">
             <% if (typeof user !== "undefined") { %>
               <li class="nav-item">
@@ -60,6 +60,7 @@
           </ul>
          
       </nav>
+      
     </menu>
 
     <header>

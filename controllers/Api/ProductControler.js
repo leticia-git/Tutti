@@ -84,7 +84,7 @@ module.exports = {
         if(!vazio){
             res.send(searchProducts)
         } else{
-            res.send('o produto que vc procura não foi encontrado!')
+            res.render('erro')
         }
     }
 

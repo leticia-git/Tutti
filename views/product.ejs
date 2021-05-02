@@ -34,15 +34,11 @@
               </div>
             </header>
     <main>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm">
             <h2 class="text-center">Outros produtos de <%= product.provider.name %> </h2>
               <div class="container">
-                <div class="row">
-                  <div class="col-sm" id="feira">
-                    <div class="row">
-                      <div class="col">
+                    <div class="row feira mb-3 " style="justify-content: space-evenly; position: relative;"  >
+                  
+                      
                           <% vendorSugestion.forEach(product => { %>   
                             <div class="card text-center" style="width: 8rem; height: 8rem;">
                               <img src="<%=product.picture%>" class="card-img-top" alt="...">
@@ -56,6 +52,14 @@
                         </div>   
                       </div>
                   </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
                 </main>
                   <%- include('./partials/wpp') %> 
                   <%- include('./partials/footer') %> 

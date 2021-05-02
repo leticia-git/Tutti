@@ -18,7 +18,7 @@ const mercadoCRouter = require ('./mercadoC');
 const cartRouter = require ('./cart');
 const checkoutRouter = require ('./checkout');
 const confirmationRouter = require ('./confirmation');
-
+const erroRouter = require ('./erro');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Tutti', user: req.session.user });
@@ -50,6 +50,6 @@ router.use('/mercadoC', mercadoCRouter);
 router.use('/cart', cartRouter);
 router.use('/checkout', checkoutRouter);
 router.use('/confirmation', confirmationRouter);
-
+router.use('/erro', erroRouter);
 
 module.exports = router;
