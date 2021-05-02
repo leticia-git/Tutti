@@ -10,7 +10,15 @@
 
                 <img class="img-fluid" src="<%=product.picture%>" style="border-radius:20px ;">
                 <p style="font-size: 20px;">R$ <%= product.price.toFixed(2) %></p>
-                                <form class="form-inline">
+                <div data-app="product.quantity" id="quantidade">
+                  <span id="span_erro_carrinho" class="blocoAlerta" style="display:none;">Selecione uma opção para variação do produto</span>
+                  <label>Qtd:</label>      
+                  <input type="button" id="minus" value='-' onclick="process(-1)" />
+                  <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
+                  <input type="button" id="plus" value='+' onclick="process(1)">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Adicionar ao carrinho</button>
+                                <!-- <form class="form-inline">
                     <button type="submit" class="btn btn-primary mb-2"> - </button>
                     <div class="form-group mx-sm-1 mb-2" >
                    
@@ -18,34 +26,34 @@
                       <input type="password" class="form-control" id="inputPassword2" placeholder="0">
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">+</button>
-                </form>
-                <a href="checkout"><button type="submit" class="btn btn-primary mb-2">Adicionar ao carrinho</button></a>
+                </form> -->
               </div>
               <div class="col-sm">
                 <img class="img-fluid"  id="tabelamaça"src="<%=product.nutrition%>" width="300px">
               </div>
             </header>
-           <main class="container">
-            <h2 class="text-center">Outros produtos de <%= product.provider.name %> </h2>
-              <div>
-                    <div class="row feira mb-3 " style="justify-content: space-evenly;"  >
-                          <% vendorSugestion.forEach(product => { %>   
-                            <div class="card text-center" style="width: 8rem; height: 8rem;">
-                              <img src="<%=product.picture%>" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                <p class="card-text" id="preço" style="color: black;"><%=product.name%></p>
-                                <p class="card-text" id="preço" style="color: rgb(70, 69, 69);">R$ <%=product.price%> /Kg</p>
-                                <a href="/product/<%=product.id%>" class="btn btn-primary">Comprar</a>
+            <main>
+              <h2 class="text-center">Outros produtos de <%= product.provider.name %> </h2>
+                <div class="container">
+                      <div class="row feira mb-3 " style="justify-content: space-evenly;" >
+                            <% vendorSugestion.forEach(product => { %>   
+                              <div class="card text-center" style="width: 8rem; height: 8rem; margin-bottom: 210px;">
+                                <img src="<%=product.picture%>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <p class="card-text" id="preço" style="color: black;"><%=product.name%></p>
+                                  <p class="card-text" id="preço" style="color: rgb(70, 69, 69);">R$ <%=product.price%> /Kg</p>
+                                  <a href="/product/<%=product.id%>" class="btn btn-primary">Comprar</a>
+                                </div>
                               </div>
-                            </div>
-                          <% }) %>
-                        </div>   
-                      </div>
+                            <% }) %>
+                          </div>   
+                        </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-                </main>
+                  </main>
+             
                   <%- include('./partials/wpp') %> 
                   <%- include('./partials/footer') %> 
   </body>
