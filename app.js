@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(session({
-  secret: 'projeto-node-fs12',
+  secret: 'projeto-tutti',
   resave: true,
   saveUninitialized: true
 }));

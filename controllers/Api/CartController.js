@@ -31,6 +31,22 @@ module.exports = {
         }
 
     },
+    
+    addItem(req, res, next){
+        let cart = req.session.cart;
+        if(cart == undefined || cart == null){
+            req.session.cart = [];
+            let item = req.body;
+            res.send(item)
+
+        } else {
+            let newItem = req.body;
+            cart.push(newItem)
+            req.session.cart = cart;
+            res.send('cai no else, tem coisa no cart: ' + cart)
+        }
+    },
+
     async index(req, res, next){
         
     }

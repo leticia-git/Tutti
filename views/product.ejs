@@ -5,7 +5,8 @@
     <header>
         <div class="container">
             <div class="row">
-              <div class="col-sm">
+              <form action="/cart/addItem" method="POST">
+                <div class="col-sm">
                   <h2><%= product.name %></h2>
 
                 <img class="img-fluid" src="<%=product.picture%>" style="border-radius:20px ;">
@@ -17,7 +18,8 @@
                   <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
                   <input type="button" id="plus" value='+' onclick="process(1)">
                 </div>
-                <button type="submit" class="btn btn-primary mb-2">Adicionar ao carrinho</button>
+                  <input type="hidden" name="produtoId" value="<%=product.id%>"/>
+                  <button type="submit" class="btn btn-primary mb-2" >Adicionar ao carrinho</button>
                                 <!-- <form class="form-inline">
                     <button type="submit" class="btn btn-primary mb-2"> - </button>
                     <div class="form-group mx-sm-1 mb-2" >
@@ -27,7 +29,10 @@
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">+</button>
                 </form> -->
-              </div>
+                </div>
+              
+              </form>
+              
               <div class="col-sm">
                 <img class="img-fluid"  id="tabelamaça"src="<%=product.nutrition%>" width="300px">
               </div>
