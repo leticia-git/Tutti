@@ -20,6 +20,7 @@ module.exports = {
             req.session.cupom = searchCupom;
             return res.render('sucesso', {user:req.session.user, message:'Seu cupom foi aplicado com sucesso!'})
         } else{
+            req.session.cupom.destroy()
             return res.render('erro', {user:req.session.user, message:'Não encontramos este cupom! Volte a sua cesta para tentar novamente ou finalizar seu pedido!'})
         }
         } catch (error){
@@ -97,8 +98,8 @@ module.exports = {
                 let totais = {totalItens:totalProdutos, frete:frete, valorFinal:total};
                 return res.render('checkout', {user:req.session.user, products:itensCart, total:totais, frete: frete, cupom:req.session.cupom});
             } else {
-                totalProdutos -= cupom.discount;
-                let total = totalProdutos + frete;
+                
+                let total = totalProdutos + frete - cupom.discount;
                 let totais = {totalItens:totalProdutos, frete:frete, valorFinal:total};
                 req.session.total = total
                 console.log('\n\ncai no else');

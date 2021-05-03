@@ -1,4 +1,5 @@
-const {Product, Provider, Category} = require("./models")
+const {Product, Provider, Category, Coupon} = require("./models")
+
 
 const criarMuitosProviders = async () =>{
     await Provider.bulkCreate([
@@ -650,7 +651,17 @@ const criarProdutos = async () =>{
     ])
 }
 
+
+
+
+
+
 // criarMuitosProviders();
 // criarCategorias();
-criarProdutos()
-
+// criarProdutos()
+Coupon.create({
+  "type":1,
+  "name":"PRIMEIRACOMPRA",
+  "discount":5,
+  "status":1
+})
