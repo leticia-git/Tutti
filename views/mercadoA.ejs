@@ -15,7 +15,13 @@
                 <img src="<%=product.picture%>" class="card-img-top" alt="..."  style="width: 9rem; height: 9rem;" >
                 <div class="card-body">
                   <h5 class="card-nome"><%=product.name%></h5>
-                  <h6 class="card-text">R$ <%=product.price.toFixed(2)%> /Kg</h6>
+                  <% if(product.sale == 0) { %>
+                    <p></p>
+                    <h6 class="card-text">Por: R$ <%=product.price.toFixed(2)%> /Kg</h6>
+                    <% } else { %>
+                    <h6 class="card-text">De: R$ <%=product.price.toFixed(2)%> /Kg</h6>
+                    <h6 class="card-text">Por: R$ <%=product.salePrice.toFixed(2)%> /Kg</h6>
+                    <% } %>
                   <a href="/product/<%=product.id%>" class="btn btn-primary">Comprar</a>
                 </div>
               </div>

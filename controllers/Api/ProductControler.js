@@ -42,7 +42,7 @@ module.exports = {
                 return res.render('erro',{user:req.session.user, message:'Não encontramos este produto!'})
             }
         }
-        catch(error) {
+        catch (error) {
             return res.render('erro',{user:req.session.user, message:'Algo deu errado!'})
         }
     },
@@ -93,7 +93,8 @@ module.exports = {
         }
     },
     async searchProduct(req, res, next){
-        let product = req.query.productName;
+        try{
+            let product = req.query.productName;
 
         let searchProducts = await Product.findAll({where:{name:{[Sequelize.Op.like]:`%${product}%`}}}).catch(error => console.log(error));
         
@@ -111,6 +112,9 @@ module.exports = {
             return res.render('mercadoGeral', {user:req.session.user, products:searchProducts})
         } else{
             res.render('erro',{message:'Não encontramos esse produto!'});
+        }
+        } catch (error) {
+            res.render('erro',{message:'Algo deu errado!'});
         }
     }
 

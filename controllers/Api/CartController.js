@@ -43,7 +43,7 @@ module.exports = {
 
             if(sale == 1){
                 let total = salePrice * quantity / 1000;
-                let itemAdd = await Cart.create({
+                await Cart.create({
                     name:name, 
                     price:salePrice, 
                     quantity:quantity, 
@@ -55,7 +55,7 @@ module.exports = {
                 return res.render('sucesso', {user:req.session.user, message:'Seu produto foi adicionado a sua cesta!'})
             } else {
                 let total = price * quantity / 1000;
-                let itemAdd = await Cart.create({
+                await Cart.create({
                     name:name, 
                     price:price, 
                     quantity:quantity, 
@@ -108,7 +108,26 @@ module.exports = {
         } catch (error) {
             return res.render('erro', {message: 'Não conseguimos identificar você!\nPor favor, realize o login!', user: req.session.user})
         }
+    },
+    async deleteItem(req, res, next){
+        let id = req.params.id;
 
+        let recipe = await Recipe.findByPk(id);  
+    
+        recipe.destroy();
+    
+        res.redirect('/');
+      },
+      
+      async limparCarrinho(req, res, next){
+        let userId = req.params.id;
 
+        await Cart.destroy({
+            where:{
+                userId
+            }
+        });
+    
+        res.redirect('/');
     }
 }
