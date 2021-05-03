@@ -2,9 +2,10 @@ const {Cart, Coupon} = require('../../models')
 
 module.exports = {
     async searchCoupon(req, res, next){
-        let cupom = req.query.cupomName;
+        try{
+            let cupom = req.query.cupomName;
 
-        let searchCupom = await Product.findAll({where:{name:cupom}}).catch(error => console.log(error));
+        let searchCupom = await Coupon.findOne({where:{name:cupom}}).catch(error => console.log(error));
         
         function isEmptyObject(products) {
             let id;
@@ -15,11 +16,14 @@ module.exports = {
           }
           
         let vazio = isEmptyObject(searchCupom);
-        console.log('\n\nCheguei no get do cupom, ele é vazio: ' + vazio)
         if(!vazio){
-            return res.render('checkout', {user:req.session.user, total:req.session.total, cupom:searchCupom})
+            req.session.cupom = searchCupom;
+            return res.render('sucesso', {user:req.session.user, message:'Seu cupom foi aplicado com sucesso!'})
         } else{
-            return res.render('checkout', {user:req.session.user, total:req.session.total})
+            return res.render('erro', {user:req.session.user, message:'Não encontramos este cupom! Volte a sua cesta para tentar novamente ou finalizar seu pedido!'})
+        }
+        } catch (error){
+            res.render('erro', {message:'Algo deu errado com seu cupom!'})
         }
     },
     async create (req, res, next){
@@ -36,8 +40,7 @@ module.exports = {
     async addItem(req, res, next){
         try{
             let {quantity, productId, name, sale, price, salePrice, userId} = req.body;
-            let rota = '/product/'+id.toString();
-            console.log(rota)
+
             if(sale == 1){
                 let total = salePrice * quantity / 1000;
                 let itemAdd = await Cart.create({
@@ -49,8 +52,7 @@ module.exports = {
                     productId:productId
                     
                 });
-                console.log(itemAdd)
-                return res.redirect('/')
+                return res.render('sucesso', {user:req.session.user, message:'Seu produto foi adicionado a sua cesta!'})
             } else {
                 let total = price * quantity / 1000;
                 let itemAdd = await Cart.create({
@@ -61,7 +63,7 @@ module.exports = {
                     userId:userId, 
                     productId:productId
                 });
-                return res.redirect('/')
+                return res.render('sucesso', {user:req.session.user, message:'Seu produto foi adicionado a sua cesta!'})
             }
             
         } catch(error){
@@ -77,21 +79,28 @@ module.exports = {
                  userId:user.id
                 }
             });
-            let total = 0;
+            
+            let totalProdutos = 0;
+            let pesoProdutos = 0;
             itensCart.forEach(element => { 
-                total+=element.itemTotal 
+                totalProdutos += element.itemTotal;
+                pesoProdutos += element.quantity
             });
-
-            req.session.total = total;
-
+            
+            let taxaFrete = pesoProdutos/1500;
+            let frete = 2.99 + taxaFrete;
+            
             let cupom = req.session.cupom;
+            
             if(cupom == 0 || cupom == undefined){
-            return res.render('checkout', {user:req.session.user, products:itensCart, total:req.session.total});
+                let total = totalProdutos + frete;
+                return res.render('checkout', {user:req.session.user, products:itensCart, total:total, frete: frete, cupom:req.session.cupom});
             } else {
-            total -= cupom.discount;
+            totalProdutos -= cupom.discount;
+            let total = totalProdutos + frete;
             req.session.total = total
             console.log('\n\ncai no else');
-            return res.render('checkout', {user:req.session.user, products:itensCart, total:req.session.total});
+            return res.render('checkout', {user:req.session.user, products:itensCart, total:total, frete:frete, cupom:req.session.cupom});
             }
             
         } catch (error) {
