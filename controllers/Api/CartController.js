@@ -129,5 +129,21 @@ module.exports = {
         });
     
         res.redirect('/');
+    },
+    async recebido(req, res, next){
+        
+        try{
+            await Cart.destroy({
+                where:{
+                    userId:1
+                }
+            })
+            
+            res.render('recebido', {user:req.session.user, message:'Recebemos o seu pedido!'})
+        
+        } catch (error){
+            res.render('recebido', {user:req.session.user, message:'Recebemos o seu pedido!'})
+        }
+        
     }
 }

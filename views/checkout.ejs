@@ -17,7 +17,7 @@
               <div class="card">
     
                 <!--Card content-->
-                <form class="card-body">
+                <form class="card-body" method="GET" action="/cart/recebido">
     
                   <!--Grid row-->
                   <div class="row">
@@ -151,11 +151,11 @@
                   <div class="d-block my-3" id='paymentDiv'>
                     <h5>Formas de Pagamento</h5>
                     <div class="custom-control custom-radio">
-                      <input id="dinheiro" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                      <input id="dinheiro" name="paymentMethod" type="radio" class="custom-control-input" required>
                       <label class="custom-control-label" for="paypal">Dinheiro</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                      <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
                       <label class="custom-control-label" for="credit">Cartão de crédito</label>
                     </div>
                     <div class="custom-control custom-radio">
@@ -198,7 +198,7 @@
                     </div>
                   </div>
                   <hr class="mb-4">
-                  <a href="confirmation"><button class="btn btn-primary btn-lg btn-block" type="submit">Finalizar compra</button></a>
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Finalizar compra</button>
     
                 </form>
     
@@ -260,7 +260,7 @@
               </form>
               
               <form class="card p-2" action="/cart/clean/<%= user.id %>" method="GET"> 
-                <button class="btn btn-secondary btn-md waves-effect m-0" id="cupom"  type="submit" style="background-color: orangered; border-color: orangered;">Limpar Carrinho</button>
+                <button class="btn btn-secondary btn-md waves-effect m-0" id="cupom"  type="submit" style="background-color: orangered; border-color: orangered;">Limpar Cesta</button>
               </form>
          
     
