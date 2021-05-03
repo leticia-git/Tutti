@@ -1,25 +1,25 @@
-const { render } = require('../../app')
 const {Cart, Coupon} = require('../../models')
 
 module.exports = {
-    async cupom (req, res, next){
-        try{
-            let name = req.params.name
-            console.log(name)
-            let cupom = await Coupon.findOne({
-                where:{
-                    name:name,
-                    status:1
-                }
-            })
-            console.log(cupom)
-            if(cupom!==undefined){
-                return res.status(200).json(cupom)
-            } else{
-                return res.status(200).json({message:'este cupom não está mais ativo ou não existe'})
+    async searchCoupon(req, res, next){
+        let cupom = req.query.cupomName;
+
+        let searchCupom = await Product.findAll({where:{name:cupom}}).catch(error => console.log(error));
+        
+        function isEmptyObject(products) {
+            var name;
+            for (name in products) {
+              return false;
             }
-        } catch(error){
-            return res.status(400).json({message: 'Error: ' + error.message})
+            return true;
+          }
+          
+        let vazio = isEmptyObject(searchCupom);
+        
+        if(!vazio){
+            return res.render('checkout', {user:req.session.user, total:req.session.total, cupom:searchCupom})
+        } else{
+            return res.render('checkout', {user:req.session.user, total:req.session.total})
         }
     },
     async create (req, res, next){
@@ -47,7 +47,6 @@ module.exports = {
                     productId:productId
                 });
                 console.log(itemAdd)
-                return res.redirect('/checkout')
             } else {
                 let total = price * quantity / 1000;
                 let itemAdd = await Cart.create({
@@ -58,8 +57,8 @@ module.exports = {
                     userId:userId, 
                     productId:productId
                 });
-                return res.redirect('/checkout',{user:req.session.user})
             }
+            return res.redirect('/')
         } catch(error){
             return res.render('erro', {message:'Não conseguimos processar sua solicitação, verifique se está logado!'})
         }
@@ -77,14 +76,17 @@ module.exports = {
             itensCart.forEach(element => { 
                 total+=element.itemTotal 
             });
-            
+
+            req.session.total = total;
+
             let cupom = req.session.cupom;
             if(cupom == 0 || cupom == undefined){
-            return res.render('checkout', {user:req.session.user, products:itensCart, total:total});
+            return res.render('checkout', {user:req.session.user, products:itensCart, total:req.session.total});
             } else {
             total -= cupom.discount;
+            req.session.total = total
             console.log('\n\ncai no else');
-            return res.render('checkout', {user:req.session.user, products:itensCart, total:total});
+            return res.render('checkout', {user:req.session.user, products:itensCart, total:req.session.total});
             }
             
         } catch (error) {
