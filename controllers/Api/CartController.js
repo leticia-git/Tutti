@@ -73,7 +73,20 @@ module.exports = {
                  userId:user.id
                 }
             });
-            return res.render('checkout', {user:req.session.user, products:itensCart});
+            let total = 0;
+            itensCart.forEach(element => { 
+                total+=element.itemTotal 
+            });
+            
+            let cupom = req.session.cupom;
+            if(cupom == 0 || cupom == undefined){
+            return res.render('checkout', {user:req.session.user, products:itensCart, total:total});
+            } else {
+            total -= cupom.discount;
+            console.log('\n\ncai no else');
+            return res.render('checkout', {user:req.session.user, products:itensCart, total:total});
+            }
+            
         } catch (error) {
             return res.render('erro', {message: 'Não conseguimos identificar você!\nPor favor, realize o login!', user: req.session.user})
         }
