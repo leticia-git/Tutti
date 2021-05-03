@@ -67,14 +67,13 @@ module.exports = {
 
     async index(req, res, next){
         try{
-            let user = req.session.user;
-            console.log('\n\n O Id é: ' + user.id + '\n\n')
+            let user = req.session.user
             let itensCart = await Cart.findAll({
              where:{
                  userId:user.id
                 }
             });
-            return res.send(itensCart);
+            return res.render('checkout', {user:req.session.user, products:itensCart});
         } catch (error) {
             return res.render('erro', {message: 'Não conseguimos identificar você!\nPor favor, realize o login!', user: req.session.user})
         }
