@@ -45,6 +45,7 @@ module.exports = {
                     itemTotal:total, 
                     userId:userId, 
                     productId:productId
+                    
                 });
                 console.log(itemAdd)
             } else {
@@ -57,8 +58,9 @@ module.exports = {
                     userId:userId, 
                     productId:productId
                 });
+              
             }
-            return res.redirect('/')
+            return res.redirect('')
         } catch(error){
             return res.render('erro', {message:'Não conseguimos processar sua solicitação, verifique se está logado!'})
         }
