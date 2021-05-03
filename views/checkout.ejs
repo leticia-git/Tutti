@@ -240,11 +240,11 @@
                   <strong id='valorTotal'>R$ <%= total.toFixed(2) %></strong>
                 </li>
               </ul> 
-              <form class="card p-2" action="/routes/cart.js" method="GET">
+              <form class="card p-2" action="/cart/cupom" method="GET">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Cupom" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <input type="text" name="cupomName" class="form-control" placeholder="Cupom" aria-label="Recipient's username" aria-describedby="basic-addon2">
                   <div class="input-group-append">
-                    <button class="btn btn-secondary btn-md waves-effect m-0" id="cupom"  type="button" style="background-color: orangered; border-color: orangered;">Ativar</button>
+                    <button class="btn btn-secondary btn-md waves-effect m-0" id="cupom"  type="submit" style="background-color: orangered; border-color: orangered;">Ativar</button>
                   </div>
                 </div>
               </form>

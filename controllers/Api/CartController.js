@@ -7,15 +7,15 @@ module.exports = {
         let searchCupom = await Product.findAll({where:{name:cupom}}).catch(error => console.log(error));
         
         function isEmptyObject(products) {
-            var name;
-            for (name in products) {
+            let id;
+            for (id in products) {
               return false;
             }
             return true;
           }
           
         let vazio = isEmptyObject(searchCupom);
-        
+        console.log('\n\nCheguei no get do cupom, ele é vazio: ' + vazio)
         if(!vazio){
             return res.render('checkout', {user:req.session.user, total:req.session.total, cupom:searchCupom})
         } else{
@@ -36,6 +36,8 @@ module.exports = {
     async addItem(req, res, next){
         try{
             let {quantity, productId, name, sale, price, salePrice, userId} = req.body;
+            let rota = '/product/'+id.toString();
+            console.log(rota)
             if(sale == 1){
                 let total = salePrice * quantity / 1000;
                 let itemAdd = await Cart.create({
@@ -47,6 +49,7 @@ module.exports = {
                     productId:productId
                 });
                 console.log(itemAdd)
+                return res.redirect('/')
             } else {
                 let total = price * quantity / 1000;
                 let itemAdd = await Cart.create({
@@ -57,8 +60,9 @@ module.exports = {
                     userId:userId, 
                     productId:productId
                 });
+                return res.redirect('/')
             }
-            return res.redirect('/')
+            
         } catch(error){
             return res.render('erro', {message:'Não conseguimos processar sua solicitação, verifique se está logado!'})
         }
