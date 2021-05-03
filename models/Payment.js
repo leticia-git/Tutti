@@ -12,23 +12,28 @@ module.exports = (sequelize, DataType) => {
     },
     status:{
       type: DataType.TINYINT,
-      allowNull:false
+      allowNull:false,
+      defaultValue:0
     },
     userAddressId:{
       type: DataType.INTEGER,
-      allowNull:false
+      allowNull:false,
+      defaultValue:0
     },
     userDataId:{
       type: DataType.INTEGER,
-      allowNull:false
+      allowNull:false,
+      defaultValue:0
     },
     cardId:{
       type: DataType.INTEGER,
-      allowNull:false
+      allowNull:false,
+      defaultValue:0
     },
     couponId:{
       type: DataType.INTEGER,
-      allowNull:false
+      allowNull:false,
+      defaultValue:0
     },
     createdAt:{
       type:DataType.DATE,
