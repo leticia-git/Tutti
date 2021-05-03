@@ -47,6 +47,7 @@ module.exports = {
                     itemTotal:total, 
                     userId:userId, 
                     productId:productId
+                    
                 });
                 console.log(itemAdd)
                 return res.redirect('/')
