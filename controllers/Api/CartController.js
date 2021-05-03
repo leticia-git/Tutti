@@ -1,4 +1,5 @@
-const {Coupon} = require('../../models')
+const { render } = require('../../app')
+const {Cart, Coupon} = require('../../models')
 
 module.exports = {
     async cupom (req, res, next){
@@ -31,7 +32,53 @@ module.exports = {
         }
 
     },
+    
+    async addItem(req, res, next){
+        try{
+            let {quantity, productId, name, sale, price, salePrice, userId} = req.body;
+            if(sale == 1){
+                let total = salePrice * quantity / 1000;
+                let itemAdd = await Cart.create({
+                    name:name, 
+                    price:salePrice, 
+                    quantity:quantity, 
+                    itemTotal:total, 
+                    userId:userId, 
+                    productId:productId
+                });
+                console.log(itemAdd)
+                return res.redirect('/checkout')
+            } else {
+                let total = price * quantity / 1000;
+                let itemAdd = await Cart.create({
+                    name:name, 
+                    price:price, 
+                    quantity:quantity, 
+                    itemTotal:total, 
+                    userId:userId, 
+                    productId:productId
+                });
+                return res.redirect('/checkout',{user:req.session.user})
+            }
+        } catch(error){
+            return res.render('erro', {message:'Não conseguimos processar sua solicitação, verifique se está logado!'})
+        }
+    },
+
     async index(req, res, next){
-        
+        try{
+            let user = req.session.user;
+            console.log('\n\n O Id é: ' + user.id + '\n\n')
+            let itensCart = await Cart.findAll({
+             where:{
+                 userId:user.id
+                }
+            });
+            return res.send(itensCart);
+        } catch (error) {
+            return res.render('erro', {message: 'Não conseguimos identificar você!\nPor favor, realize o login!', user: req.session.user})
+        }
+
+
     }
 }

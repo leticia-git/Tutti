@@ -6,6 +6,7 @@
         <div class="container">
             <div class="row text-center" style="font-family: helvetica!important;font-size: 15px!important;">
               <div class="col-sm">
+                <form method="POST" action="/cart/addItem">
                   <h2><%= product.name %></h2>
                 <img class="img-fluid" src="<%=product.picture%>" style="border-radius:20px ;">
                 <p style="font-size: 20px!important">R$ <%= product.price.toFixed(2) %> /Kg</p>
@@ -17,6 +18,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Adicionar ao carrinho</button>
               </div>
+              
+           
+              
               <div class="col-sm">
                 <img class="img-fluid"  id="tabelamaça"src="<%=product.nutrition%>" width="300px">
               </div>
