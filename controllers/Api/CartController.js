@@ -94,13 +94,15 @@ module.exports = {
             
             if(cupom == 0 || cupom == undefined){
                 let total = totalProdutos + frete;
-                return res.render('checkout', {user:req.session.user, products:itensCart, total:total, frete: frete, cupom:req.session.cupom});
+                let totais = {totalItens:totalProdutos, frete:frete, valorFinal:total};
+                return res.render('checkout', {user:req.session.user, products:itensCart, total:totais, frete: frete, cupom:req.session.cupom});
             } else {
-            totalProdutos -= cupom.discount;
-            let total = totalProdutos + frete;
-            req.session.total = total
-            console.log('\n\ncai no else');
-            return res.render('checkout', {user:req.session.user, products:itensCart, total:total, frete:frete, cupom:req.session.cupom});
+                totalProdutos -= cupom.discount;
+                let total = totalProdutos + frete;
+                let totais = {totalItens:totalProdutos, frete:frete, valorFinal:total};
+                req.session.total = total
+                console.log('\n\ncai no else');
+                return res.render('checkout', {user:req.session.user, products:itensCart, total:totais, frete:frete, cupom:req.session.cupom});
             }
             
         } catch (error) {
